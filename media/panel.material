@@ -1,0 +1,56 @@
+material PhyLogo 
+{
+ technique 
+ {
+   pass 
+   {
+     scene_blend src_alpha one_minus_src_alpha
+     texture_unit  
+     {
+       texture Logo_Physicorum.tga
+     }
+   }
+ }
+}
+material VictoryLogo
+{
+ technique 
+ {
+   pass 
+   {
+     scene_blend src_alpha one_minus_src_alpha
+     texture_unit  
+     {
+       texture Finish.tga
+     }
+   }
+ }
+}
+material panelInfoM 
+{
+ technique 
+ {
+   pass 
+   {
+     scene_blend src_alpha one_minus_src_alpha
+     texture_unit 
+     {
+       texture panel.tga
+     }
+   }
+ }
+}
+
+material matUCLM 
+{
+ technique 
+ {
+   pass 
+   {
+     texture_unit 
+     {
+       texture logouclm.jpg
+     }
+   }
+ }
+}

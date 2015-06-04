@@ -1,0 +1,33 @@
+<GUILayout>
+    <Window Type="ArkaGraf/FrameWindow" Name="FormatWin">
+        <Property Name="UnifiedAreaRect" Value="{{0.25,0},{0.05,0},{0.75,0},{0.95,0}}" />
+        <Property Name="TitlebarEnabled" Value="false" />
+
+	<Window  Type="ArkaGraf/StaticText" Name="FormatWin/Text1">
+            <Property Name="UnifiedAreaRect" Value="{{0.05,0},{0.05,0},{0.95,0},{0.16,0}}" />
+        </Window>
+	<Window  Type="ArkaGraf/StaticText" Name="FormatWin/Text2">
+            <Property Name="UnifiedAreaRect" Value="{{0.05,0},{0.16,0},{0.95,0},{0.27,0}}" />
+        </Window>
+	<Window  Type="ArkaGraf/StaticText" Name="FormatWin/Text3">
+            <Property Name="UnifiedAreaRect" Value="{{0.05,0},{0.27,0},{0.95,0},{0.38,0}}" />
+        </Window>
+	<Window  Type="ArkaGraf/StaticText" Name="FormatWin/Text4">
+            <Property Name="UnifiedAreaRect" Value="{{0.05,0},{0.38,0},{0.95,0},{0.49,0}}" />
+        </Window>
+	<Window  Type="ArkaGraf/StaticText" Name="FormatWin/Text5">
+            <Property Name="UnifiedAreaRect" Value="{{0.05,0},{0.49,0},{0.95,0},{0.60,0}}" />
+        </Window>
+	<Window  Type="ArkaGraf/StaticText" Name="FormatWin/Text6">
+            <Property Name="UnifiedAreaRect" Value="{{0.05,0},{0.60,0},{0.95,0},{0.71,0}}" />
+        </Window>
+	<Window  Type="ArkaGraf/StaticText" Name="FormatWin/Text7">
+            <Property Name="UnifiedAreaRect" Value="{{0.05,0},{0.71,0},{0.95,0},{0.82,0}}" />
+        </Window>
+        <Window Type="ArkaGraf/Button" Name="FormatWin/BackButton">
+            <Property Name="UnifiedAreaRect" Value="{{0.2,0},{0.83,0},{0.8,0},{0.93,0}}" />
+            <Property Name="Text" Value="Atras" />
+        </Window>
+        
+    </Window>
+</GUILayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout>
+  <Window Type="ArkaGraf/FrameWindow" Name="FormatWin">
+    <Property Name="Text" Value=""/>
+    <Property Name="TitlebarEnabled" Value="false"/>
+    <Property Name="UnifiedAreaRect" Value="{{0.25,0},{0.50,0},{0.75,0},{0.95,0}}"/>
+    <!-- Command Button -->
+    <Window Type="ArkaGraf/Button" Name="FormatWin/CommandButton">
+      <Property Name="Text" Value="Comandos" />
+      <Property Name="UnifiedAreaRect" Value="{{0.20,0},{0.15,0},{0.80,0},{0.35,0}}"/>
+    </Window>
+    <!-- Credits Button -->
+    <Window Type="ArkaGraf/Button" Name="FormatWin/CreditsButton">
+      <Property Name="Text" Value="Creditos" />
+      <Property Name="UnifiedAreaRect" Value="{{0.20,0},{0.40,0},{0.80,0},{0.60,0}}"/>
+    </Window>
+    <!-- Exit Button -->
+    <Window Type="ArkaGraf/Button" Name="FormatWin/BackButton">
+      <Property Name="Text" Value="Atras" />
+      <Property Name="UnifiedAreaRect" Value="{{0.20,0},{0.65,0},{0.80,0},{0.85,0}}"/>
+    </Window>
+  </Window>
+</GUILayout>

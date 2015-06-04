@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<GUIScheme Name="ArkaGraf">
+	<Imageset Name="ArkaGraf" Filename="ArkaGraf.imageset" />
+	<LookNFeel Filename="ArkaGraf.looknfeel" />
+	<WindowRendererSet Filename="CEGUIFalagardWRBase" />
+	<FalagardMapping WindowType="ArkaGraf/Button"      TargetType="CEGUI/PushButton"  Renderer="Falagard/Button"       LookNFeel="ArkaGraf/Button" />
+	<FalagardMapping WindowType="ArkaGraf/Checkbox"    TargetType="CEGUI/Checkbox"    Renderer="Falagard/ToggleButton" LookNFeel="ArkaGraf/Checkbox" />
+	<FalagardMapping WindowType="ArkaGraf/ImageButton" TargetType="CEGUI/PushButton"  Renderer="Falagard/Button"       LookNFeel="ArkaGraf/ImageButton" />
+	<FalagardMapping WindowType="ArkaGraf/RadioButton" TargetType="CEGUI/RadioButton" Renderer="Falagard/ToggleButton" LookNFeel="ArkaGraf/RadioButton" />
+	<FalagardMapping WindowType="ArkaGraf/FrameWindow"  TargetType="CEGUI/FrameWindow" Renderer="Falagard/FrameWindow"  LookNFeel="ArkaGraf/FrameWindow" />
+	<FalagardMapping WindowType="ArkaGraf/Titlebar"     TargetType="CEGUI/Titlebar"    Renderer="Falagard/Titlebar"     LookNFeel="ArkaGraf/Titlebar" />
+	<FalagardMapping WindowType="ArkaGraf/SystemButton" TargetType="CEGUI/PushButton"  Renderer="Falagard/SystemButton" LookNFeel="ArkaGraf/Button" />
+	<FalagardMapping WindowType="ArkaGraf/Editbox"          TargetType="CEGUI/Editbox"          Renderer="Falagard/Editbox"          LookNFeel="ArkaGraf/Editbox" />
+	<FalagardMapping WindowType="ArkaGraf/MultiLineEditbox" TargetType="CEGUI/MultiLineEditbox" Renderer="Falagard/MultiLineEditbox" LookNFeel="ArkaGraf/MultiLineEditbox" />
+	<FalagardMapping WindowType="ArkaGraf/Menubar"   TargetType="CEGUI/Menubar"   Renderer="Falagard/Menubar"   LookNFeel="ArkaGraf/Menubar" />
+	<FalagardMapping WindowType="ArkaGraf/PopupMenu" TargetType="CEGUI/PopupMenu" Renderer="Falagard/PopupMenu" LookNFeel="ArkaGraf/PopupMenu" />
+	<FalagardMapping WindowType="ArkaGraf/MenuItem"  TargetType="CEGUI/MenuItem"  Renderer="Falagard/MenuItem"  LookNFeel="ArkaGraf/MenuItem" />
+	<FalagardMapping WindowType="ArkaGraf/AlternateProgressBar" TargetType="CEGUI/ProgressBar" Renderer="Falagard/ProgressBar" LookNFeel="ArkaGraf/AltProgressBar" />
+	<FalagardMapping WindowType="ArkaGraf/ProgressBar"          TargetType="CEGUI/ProgressBar" Renderer="Falagard/ProgressBar" LookNFeel="ArkaGraf/ProgressBar" />
+	<FalagardMapping WindowType="ArkaGraf/VUMeter"              TargetType="CEGUI/ProgressBar" Renderer="Falagard/ProgressBar" LookNFeel="ArkaGraf/VUMeter" />
+	<FalagardMapping WindowType="ArkaGraf/VerticalScrollbar"   TargetType="CEGUI/Scrollbar" Renderer="Falagard/Scrollbar" LookNFeel="ArkaGraf/VerticalScrollbar" />
+	<FalagardMapping WindowType="ArkaGraf/HorizontalScrollbar" TargetType="CEGUI/Scrollbar" Renderer="Falagard/Scrollbar" LookNFeel="ArkaGraf/HorizontalScrollbar" />
+	<FalagardMapping WindowType="ArkaGraf/VerticalScrollbarThumb"   TargetType="CEGUI/Thumb" Renderer="Falagard/Button" LookNFeel="ArkaGraf/VerticalScrollbarThumb" />
+	<FalagardMapping WindowType="ArkaGraf/HorizontalScrollbarThumb" TargetType="CEGUI/Thumb" Renderer="Falagard/Button" LookNFeel="ArkaGraf/HorizontalScrollbarThumb" />
+	<FalagardMapping WindowType="ArkaGraf/LargeVerticalScrollbar"      TargetType="CEGUI/Scrollbar" Renderer="Falagard/Scrollbar" LookNFeel="ArkaGraf/LargeVerticalScrollbar" />
+	<FalagardMapping WindowType="ArkaGraf/LargeVerticalScrollbarThumb" TargetType="CEGUI/Thumb"     Renderer="Falagard/Button"    LookNFeel="ArkaGraf/LargeVerticalScrollbarThumb" />
+	<FalagardMapping WindowType="ArkaGraf/TabButton"  TargetType="CEGUI/TabButton"  Renderer="Falagard/TabButton"  LookNFeel="ArkaGraf/TabButton" />
+	<FalagardMapping WindowType="ArkaGraf/TabControl" TargetType="CEGUI/TabControl" Renderer="Falagard/TabControl" LookNFeel="ArkaGraf/TabControl" />
+	<FalagardMapping WindowType="ArkaGraf/TabContentPane"    TargetType="DefaultWindow"    Renderer="Falagard/Default"    LookNFeel="ArkaGraf/TabContentPane" />
+	<FalagardMapping WindowType="ArkaGraf/TabButtonPane"    TargetType="DefaultWindow"    Renderer="Falagard/Default"    LookNFeel="ArkaGraf/TabButtonPane" />
+	<FalagardMapping WindowType="ArkaGraf/ComboDropList" TargetType="CEGUI/ComboDropList" Renderer="Falagard/Listbox" LookNFeel="ArkaGraf/ComboDropList" />
+	<FalagardMapping WindowType="ArkaGraf/ComboEditbox"  TargetType="CEGUI/Editbox"	 Renderer="Falagard/Editbox" LookNFeel="ArkaGraf/ComboEditbox" />
+	<FalagardMapping WindowType="ArkaGraf/Combobox"	TargetType="CEGUI/Combobox"	 Renderer="Falagard/Default" LookNFeel="ArkaGraf/Combobox" />
+	<FalagardMapping WindowType="ArkaGraf/Listbox"           TargetType="CEGUI/Listbox"           Renderer="Falagard/Listbox"           LookNFeel="ArkaGraf/Listbox" />
+	<FalagardMapping WindowType="ArkaGraf/ListHeader"        TargetType="CEGUI/ListHeader"        Renderer="Falagard/ListHeader"        LookNFeel="ArkaGraf/ListHeader" />
+	<FalagardMapping WindowType="ArkaGraf/ListHeaderSegment" TargetType="CEGUI/ListHeaderSegment" Renderer="Falagard/ListHeaderSegment" LookNFeel="ArkaGraf/ListHeaderSegment" />
+	<FalagardMapping WindowType="ArkaGraf/MultiColumnList"   TargetType="CEGUI/MultiColumnList"   Renderer="Falagard/MultiColumnList"   LookNFeel="ArkaGraf/MultiColumnList" />
+	<FalagardMapping WindowType="ArkaGraf/Slider"      TargetType="CEGUI/Slider"      Renderer="Falagard/Slider"  LookNFeel="ArkaGraf/Slider" />
+	<FalagardMapping WindowType="ArkaGraf/SliderThumb" TargetType="CEGUI/Thumb" Renderer="Falagard/Button"  LookNFeel="ArkaGraf/SliderThumb" />
+	<FalagardMapping WindowType="ArkaGraf/ScrollablePane" TargetType="CEGUI/ScrollablePane" Renderer="Falagard/ScrollablePane" LookNFeel="ArkaGraf/ScrollablePane" />
+	<FalagardMapping WindowType="ArkaGraf/Spinner" TargetType="CEGUI/Spinner" Renderer="Falagard/Default" LookNFeel="ArkaGraf/Spinner" />
+	<FalagardMapping WindowType="ArkaGraf/Tooltip" TargetType="CEGUI/Tooltip" Renderer="Falagard/Tooltip" LookNFeel="ArkaGraf/Tooltip" />
+	<FalagardMapping WindowType="ArkaGraf/StaticImage" TargetType="DefaultWindow" Renderer="Falagard/StaticImage" LookNFeel="ArkaGraf/StaticImage" />
+	<FalagardMapping WindowType="ArkaGraf/StaticText"  TargetType="DefaultWindow" Renderer="Falagard/StaticText"  LookNFeel="ArkaGraf/StaticText" />
+    	<FalagardMapping WindowType="ArkaGraf/ItemListbox" TargetType="CEGUI/ItemListbox" Renderer="Falagard/ItemListbox" LookNFeel="ArkaGraf/ItemListbox" />
+    	<FalagardMapping WindowType="ArkaGraf/ListboxItem" TargetType="CEGUI/ItemEntry"   Renderer="Falagard/ItemEntry"   LookNFeel="ArkaGraf/ListboxItem" />
+</GUIScheme>

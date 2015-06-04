@@ -1,0 +1,188 @@
+
+material _missing_material_
+{
+    receive_shadows off
+    technique
+    {
+        pass
+        {
+            ambient 0.1 0.1 0.1 1.0
+            diffuse 0.8 0.0 0.0 1.0
+            specular 0.5 0.5 0.5 1.0 12.5
+            emissive 0.3 0.3 0.3 1.0
+        }
+    }
+}
+
+// PlateMaterial genrated by blender2ogre 0.6.0
+
+material PlateMaterial 
+{
+    receive_shadows on 
+
+    technique
+    {
+        pass PlateMaterial
+        {
+            ambient 0.800000011920929 0.800000011920929 0.800000011920929 1.0
+            diffuse 0.32000000953674324 0.32000000953674324 0.32000000953674324 1.0
+            specular 0.3499999940395355 0.3499999940395355 0.3499999940395355 1.0 12.5
+            emissive 0.0 0.0 0.0 1.0
+
+            alpha_to_coverage off
+            colour_write on
+            cull_hardware clockwise
+            depth_check on
+            depth_func less_equal
+            depth_write on
+            illumination_stage 
+            light_clip_planes off
+            light_scissor off
+            lighting on
+            normalise_normals off
+            polygon_mode solid
+            scene_blend one zero
+            scene_blend_op add
+            shading gouraud
+            transparent_sorting on
+
+            texture_unit 
+            {
+                texture Robot Texture.png
+                tex_address_mode wrap
+                scale 1.0 1.0
+                tex_coord_set 0
+                colour_op modulate
+            }
+        }
+    }
+}
+// AxisMaterial genrated by blender2ogre 0.6.0
+
+material AxisMaterial 
+{
+    receive_shadows on 
+
+    technique
+    {
+        pass AxisMaterial
+        {
+            ambient 0.800000011920929 0.800000011920929 0.800000011920929 1.0
+            diffuse 0.32432432657963517 0.32432432657963517 0.32432432657963517 1.0
+            specular 0.004999999888241291 0.004999999888241291 0.004999999888241291 1.0 12.5
+            emissive 0.0 0.0 0.0 1.0
+
+            alpha_to_coverage off
+            colour_write on
+            cull_hardware clockwise
+            depth_check on
+            depth_func less_equal
+            depth_write on
+            illumination_stage 
+            light_clip_planes off
+            light_scissor off
+            lighting on
+            normalise_normals off
+            polygon_mode solid
+            scene_blend one zero
+            scene_blend_op add
+            shading gouraud
+            transparent_sorting on
+
+            texture_unit 
+            {
+                texture Robot Texture.png
+                tex_address_mode wrap
+                scale 1.0 1.0
+                tex_coord_set 0
+                colour_op modulate
+            }
+        }
+    }
+}
+// HeadMaterial genrated by blender2ogre 0.6.0
+
+material HeadMaterial 
+{
+    receive_shadows on 
+
+    technique
+    {
+        pass HeadMaterial
+        {
+            ambient 0.800000011920929 0.800000011920929 0.800000011920929 1.0
+            diffuse 0.48864866031182785 0.48864866031182785 0.48864866031182785 1.0
+            specular 0.30405405163764954 0.30405405163764954 0.30405405163764954 1.0 12.5
+            emissive 0.0 0.0 0.0 1.0
+
+            alpha_to_coverage off
+            colour_write on
+            cull_hardware clockwise
+            depth_check on
+            depth_func less_equal
+            depth_write on
+            illumination_stage 
+            light_clip_planes off
+            light_scissor off
+            lighting on
+            normalise_normals off
+            polygon_mode solid
+            scene_blend one zero
+            scene_blend_op add
+            shading gouraud
+            transparent_sorting on
+
+            texture_unit 
+            {
+                texture Robot Texture.png
+                tex_address_mode wrap
+                scale 1.0 1.0
+                tex_coord_set 0
+                colour_op modulate
+            }
+        }
+    }
+}
+// WheelMaterial genrated by blender2ogre 0.6.0
+
+material WheelMaterial 
+{
+    receive_shadows on 
+
+    technique
+    {
+        pass WheelMaterial
+        {
+            ambient 0.0 0.0 0.0 1.0
+            diffuse 0.4000000059604645 0.4000000059604645 0.4000000059604645 1.0
+            specular 0.0 0.0 0.0 1.0 25.0
+            emissive 0.0 0.0 0.0 1.0
+
+            alpha_to_coverage off
+            colour_write on
+            cull_hardware clockwise
+            depth_check on
+            depth_func less_equal
+            depth_write on
+            illumination_stage 
+            light_clip_planes off
+            light_scissor off
+            lighting on
+            normalise_normals off
+            polygon_mode solid
+            scene_blend one zero
+            scene_blend_op add
+            shading gouraud
+            transparent_sorting on
+
+            texture_unit 
+            {
+                texture DarkWheel.png
+                tex_address_mode wrap
+                scale 1.0 1.0
+                tex_coord_set 0
+                colour_op modulate
+            }
+        }
+    }
+}

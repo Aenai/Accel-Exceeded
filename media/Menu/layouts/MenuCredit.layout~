@@ -1,0 +1,29 @@
+<GUILayout>
+    <Window Name="FormatWin" Type="ArkaGraf/FrameWindow">
+        <Property Name="UnifiedAreaRect" Value="{{0.25,0},{0.5,0},{0.75,0},{0.95,0}}" />
+        <Property Name="TitlebarEnabled" Value="false" />
+        <Window Name="FormatWin/Text1" Type="ArkaGraf/StaticText">
+            <Property Name="UnifiedAreaRect" Value="{{0.2,0},{0.1,0},{0.8,0},{0.2,0}}" />
+            <Property Name="UnifiedMaxSize" Value="{{1,0},{1,0}}" />
+            <Property Name="FrameEnabled" Value="false" />
+            <Property Name="BackgroundEnabled" Value="false" />
+        </Window>
+        <Window Name="FormatWin/Text2" Type="ArkaGraf/StaticText">
+            <Property Name="UnifiedAreaRect" Value="{{0.2,0},{0.25,0},{0.8,0},{0.35,0}}" />
+            <Property Name="UnifiedMaxSize" Value="{{1,0},{1,0}}" />
+            <Property Name="TextColours" Value="tl:FFFFC8FF tr:FFFFFFFF bl:FFFFFFFF br:FFFFFFFF" />
+            <Property Name="FrameEnabled" Value="true" />
+            <Property Name="BackgroundEnabled" Value="true" />
+        </Window>
+        <Window Name="FormatWin/Text3" Type="ArkaGraf/StaticText">
+            <Property Name="UnifiedAreaRect" Value="{{0.2,0},{0.4,0},{0.8,0},{0.5,0}}" />
+            <Property Name="UnifiedMaxSize" Value="{{1,0},{1,0}}" />
+            <Property Name="FrameEnabled" Value="true" />
+            <Property Name="BackgroundEnabled" Value="true" />
+        </Window>
+        <Window Name="FormatWin/BackButton" Type="ArkaGraf/Button">
+            <Property Name="UnifiedAreaRect" Value="{{0.2,0},{0.65,0},{0.8,0},{0.85,0}}" />
+            <Property Name="Text" Value="Atras" />
+        </Window>
+    </Window>
+</GUILayout>
