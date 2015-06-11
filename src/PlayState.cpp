@@ -11,6 +11,22 @@ using namespace Ogre;
 
 template<> PlayState* Ogre::Singleton<PlayState>::msSingleton = 0;
 
+// Performs raycasting on the world and returns the point of collision
+bool PlayState::Raycast_world(const btVector3 &Start, btVector3 &End, btVector3 &Normal) {
+
+    btCollisionWorld::ClosestRayResultCallback res(Start, End);
+
+    _world->getBulletDynamicsWorld()->rayTest(Start, End, res); // m_btWorld is btDiscreteDynamicsWorld
+    
+
+    if(res.hasHit()){
+        //printf("Collision at: <%.2f, %.2f, %.2f>\n", res.m_hitPointWorld.getX(), res.m_hitPointWorld.getY(), res.m_hitPointWorld.getZ());
+        //_coordVisor->setPosition(
+         //   Vector3(res.m_hitPointWorld.getX(), res.m_hitPointWorld.getY(), res.m_hitPointWorld.getZ()));
+    }
+    return res.hasHit();
+}
+
 bool inAbsoluteRange(float checkedFloat, float maximum){
   return checkedFloat < maximum && checkedFloat > -maximum;
 }
@@ -224,7 +240,7 @@ PlayState::enter ()
 	_player->attachObject(ent1);
 	_sceneMgr->getRootSceneNode()->addChild(_player.get());
 	_player->setScale(1,1,1);
-	//_player->setPosition(-10,-47,-40);
+  _player->setVisible(false);
 
   //DEBUG ONLY Coordinator Situate
 	Ogre::Entity* ent2 = _sceneMgr->createEntity("DEBUG SEE", "RobotilloMesh.mesh");
@@ -245,7 +261,7 @@ PlayState::enter ()
 
  _camera->lookAt(Vector3(-10,-47,47));
   rigidBoxPlayer->setShape(_player.get(), boxShape,
-		     0.6 /* Restitucion */, 0.6 /* Friccion */,
+		     0.0 /* Restitucion */, 0.2 /* Friccion */,
 		     5.0 /* Masa */, Vector3(-40,-47,87)/* Posicion inicial */,
 		     Quaternion(0,0,-180,1) /* Orientacion */);
  rigidBoxPlayer->getBulletRigidBody()->setLinearFactor(btVector3(1,1,1));
@@ -265,7 +281,6 @@ PlayState::enter ()
    _left = false;
    _right = false;
    _ball = false;
-   _firstperson = false;
    _leftShooting = false;
    _win = false;
    _cameraZoom = 0;
@@ -328,17 +343,9 @@ PlayState::frameStarted
   if (_forward) {
       rigidBoxPlayer->disableDeactivation();
       Vector3 destiny;
-      if(!_ball)
-        destiny = _player->convertLocalToWorldPosition(Vector3(0,0,-1));
-      else{
-        if(_firstperson){
           Vector3 direction = _camera->getDirection();
           direction.y = 0;
           destiny = _player->getPosition() +  direction * 10;
-        }else{
-          destiny = _player->getPosition() - Vector3(0,0,10);
-        }
-      }
       Vector3 delta = destiny - _player->getPosition();
       Vector3 normalisedDelta = delta.normalisedCopy();
       if(inAbsoluteRange(playerVelocity,7) || _ball){
@@ -349,17 +356,9 @@ PlayState::frameStarted
   if (_back) {
     rigidBoxPlayer->disableDeactivation();
     Vector3 destiny;
-      if(!_ball)
-        destiny = _player->convertLocalToWorldPosition(Vector3(0,0,1));
-      else{
-        if(_firstperson){
           Vector3 direction = _camera->getDirection();
           direction.y = 0;
           destiny = _player->getPosition() -  direction * 10;
-        }else{
-          destiny = _player->getPosition() - Vector3(0,0,-10);
-        }
-      }
     Vector3 delta = destiny - _player->getPosition();
     Vector3 normalisedDelta = delta.normalisedCopy();
     if(inAbsoluteRange(playerVelocity,7) || _ball){
@@ -370,55 +369,52 @@ PlayState::frameStarted
   float maxAngular = 0.5;
   if (_left) {
     rigidBoxPlayer->disableDeactivation();
-    if(!_ball){
-      float velocity = rigidBoxPlayer->getBulletRigidBody()->getAngularVelocity().y();
-      if(velocity < maxAngular){
-        rigidBoxPlayer->getBulletRigidBody()->
-          applyTorque(btVector3(0,200,0));
-      }
-    }else{
       Vector3 destiny;
-      if(_firstperson){
           Vector3 direction = _camera->getDirection();
           direction.y = 0;
           destiny = _player->getPosition() - Quaternion(Degree(-90),Vector3::UNIT_Y) * direction * 10;
-      }else{
-        destiny = _player->getPosition() - Vector3(10,0,0);
-      }
       Vector3 delta = destiny - _player->getPosition();
       Vector3 normalisedDelta = delta.normalisedCopy();
       if(inAbsoluteRange(playerVelocity,7) || _ball){
         rigidBoxPlayer->getBulletRigidBody()->
-        applyCentralForce(btVector3(normalisedDelta.x,-normalisedDelta.y,normalisedDelta.z)*8000*_lastTime);
+        applyCentralForce(btVector3(normalisedDelta.x,-normalisedDelta.y,normalisedDelta.z)*18000*_lastTime);
       }
-    }
   }
   if (_right) {
-    if(!_ball){
-      rigidBoxPlayer->disableDeactivation();
-      float velocity = rigidBoxPlayer->getBulletRigidBody()->getAngularVelocity().y();
-      if(velocity > -maxAngular){
-      rigidBoxPlayer->getBulletRigidBody()->
-        applyTorque(btVector3(0,-200,0));
-      }
-    }else{
       Vector3 destiny;
-      if(_firstperson){
-          Vector3 direction = _camera->getDirection();
-          direction.y = 0;
-          destiny = _player->getPosition() - Quaternion(Degree(90),Vector3::UNIT_Y) * direction * 10;
-      }else{
-          destiny = _player->getPosition() - Vector3(-10,0,0);
-      }
+      Vector3 direction = _camera->getDirection();
+      direction.y = 0;
+      destiny = _player->getPosition() - Quaternion(Degree(90),Vector3::UNIT_Y) * direction * 10;
       Vector3 delta = destiny - _player->getPosition();
       Vector3 normalisedDelta = delta.normalisedCopy();
       if(inAbsoluteRange(playerVelocity,7) || _ball){
         rigidBoxPlayer->getBulletRigidBody()->
-        applyCentralForce(btVector3(normalisedDelta.x,-normalisedDelta.y,normalisedDelta.z)*8000*_lastTime);
+        applyCentralForce(btVector3(normalisedDelta.x,-normalisedDelta.y,normalisedDelta.z)*18000*_lastTime);
       }
-    }
   }
+  // Aero Logic
+  Vector3 ogrePos = _player->getPosition()-Vector3(0,1.9,0);
+  const btVector3 playerPosition(ogrePos.x,ogrePos.y,ogrePos.z);
+  btVector3 goingTo(ogrePos.x,ogrePos.y-5,ogrePos.z);
+  btVector3 mariloles;
+ // std::cout << Raycast_world(playerPosition, goingTo, mariloles) << std::endl; 
+  
+  if(Raycast_world(playerPosition, goingTo, mariloles)){
+      rigidBoxPlayer->disableDeactivation();
+      Vector3 destiny;
+          Vector3 direction(0,4,0);
+          destiny = _player->getPosition() +  direction * 10;
+      Vector3 delta = destiny - _player->getPosition();
+      Vector3 normalisedDelta = delta.normalisedCopy();
+        rigidBoxPlayer->getBulletRigidBody()->
+        applyCentralForce(btVector3(normalisedDelta.x,normalisedDelta.y,normalisedDelta.z)*700*_lastTime);
+   /* double x = _player->getPosition().x, y = _player->getPosition().y, z = _player->getPosition().z;
+    btVector3 delta = goingTo - btVector3(x,y,z);
+    rigidBoxPlayer->getBulletRigidBody()->translate(delta);*/
+  }
+  
   // Shoot Logic
+  /*
   if(_ball && _firstperson && _leftShooting){
     _newtons += evt.timeSinceLastFrame ;
     OverlayElement *oe;
@@ -441,10 +437,10 @@ PlayState::frameStarted
                         (_pSoundFXManager->load("sqau.wav"))->play();
       }
       _newtons = 0;
-  }
+  }*/
   
   _animationUpdater->update(evt);
-  _inputHandler->update(evt,_player->getPosition(),_ball, _firstperson, _cameraZoom);
+  _inputHandler->update(evt,_player->getPosition(),false, true, _cameraZoom);
   return true;
 }
 
@@ -482,60 +478,18 @@ PlayState::keyPressed
   if (e.key == OIS::KC_D) {
     _right = true;
   }
-  if (e.key == OIS::KC_E) {
-    _ball = !_ball;
-    if(_ball){
-      OgreBulletCollisions::CollisionShape *ballShape = new 
-        OgreBulletCollisions::SphereCollisionShape(1.5);
 
-      Vector3 samePosition = rigidBoxPlayer->getSceneNode()->getPosition();
-      _changes++;
-
-      rigidBoxPlayer = new 
-        OgreBulletDynamics::RigidBody("rigidBoxPlayer" + 
-           StringConverter::toString(_changes), _world);
-      rigidBoxPlayer->setShape(_player.get(), ballShape,
-             0.6 /* Restitucion */, 0.6 /* Friccion */,
-             5.0 /* Masa */, samePosition/* Posicion inicial */,
-             Quaternion(0,0,-180,1) /* Orientacion */);
-    }else{
-      _firstperson = false;
-      OgreBulletCollisions::BoxCollisionShape *boxShape = new 
-        OgreBulletCollisions::BoxCollisionShape(Vector3(2,2,2));
-
-      Vector3 samePosition = rigidBoxPlayer->getSceneNode()->getPosition();
-      samePosition += Vector3(0,4,0);
-      _changes++;
-
-      rigidBoxPlayer = new 
-        OgreBulletDynamics::RigidBody("rigidBox" + 
-           StringConverter::toString(_changes), _world);
-
-      rigidBoxPlayer->setShape(_player.get(), boxShape,
-             0.6 /* Restitucion */, 0.6 /* Friccion */,
-             5.0 /* Masa */, samePosition/* Posicion inicial */,
-             Quaternion(0,0,-180,1) /* Orientacion */);
- rigidBoxPlayer->getBulletRigidBody()->setLinearFactor(btVector3(1,1,1));
- rigidBoxPlayer->getBulletRigidBody()->setAngularFactor(btVector3(0,1,0));
-//   rigidBoxPlayer->getBulletRigidBody()->setLinearFactor(btVector3(1,1,1));
- //  rigidBoxPlayer->getBulletRigidBody()->setAngularFactor(btVector3(0,1,0));
-    }
-
-
-  
-  } 
-
-  if (e.key == OIS::KC_Q) {
-      std::cout << "heh"<< std::endl;
-    if(!_firstperson && _ball){
-      _firstperson = true;
-      _player->setVisible(false);
-      std::cout << "false"<< std::endl;
-    }else if(_firstperson && _ball){
-      _firstperson = false;
-      _player->setVisible(true);
-    }
+  if(e.key == OIS::KC_SPACE){
+      rigidBoxPlayer->disableDeactivation();
+      Vector3 destiny;
+          Vector3 direction(0,4,0);
+          destiny = _player->getPosition() +  direction * 10;
+      Vector3 delta = destiny - _player->getPosition();
+      Vector3 normalisedDelta = delta.normalisedCopy();
+        rigidBoxPlayer->getBulletRigidBody()->
+        applyCentralForce(btVector3(normalisedDelta.x,normalisedDelta.y,normalisedDelta.z)*118000*_lastTime);
   }
+
   if (e.key == OIS::KC_UP) {
     _cameraZoom += 1;
   }
@@ -571,9 +525,8 @@ PlayState::keyPressed
       "Y: " << position.y << std::endl << 
       "Z: " << position.z << std::endl;
   }
-  //light->setPosition(position);
+  
   _animationUpdater->keyPressed(e);
- // _inputHandler->keyPressed(e);
 }
 
 void

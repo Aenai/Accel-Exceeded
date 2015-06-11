@@ -24,42 +24,17 @@ void InputHandler::keyReleased (const OIS::KeyEvent &e){
 void InputHandler::update(const Ogre::FrameEvent& evt, Vector3 target, bool ball, bool firstPerson,
     double cameraZoom){
 
-  if(!ball){
-    Vector3 cameraPosition = Vector3(0,20,20);
-     Vector3 pointToTarget = Vector3(0,15,10);
-
-    // Vector3 cameraPosition = _player->getPosition() + Vector3(0,20,20); 
-    // Vector3 pointToTarget = _player->getPosition() + Vector3(0,15,10); 
-    
-     cameraPosition += Vector3(0,cameraZoom,cameraZoom/2);
-     pointToTarget += Vector3(0,cameraZoom,cameraZoom);
-
-    cameraPosition = _player->convertLocalToWorldPosition(cameraPosition);
-     pointToTarget = _player->convertLocalToWorldPosition(pointToTarget);
-
-     _extendedCamera->setTightness(0.1f);
-     _extendedCamera->update(evt.timeSinceLastFrame,cameraPosition,pointToTarget);
-  }else{
 
        Vector3 cameraPosition;
        Vector3 pointToTarget;
-    if(firstPerson){
        /*cameraPosition = _player->convertLocalToWorldPosition(Vector3(0,0,-10));
        pointToTarget = _player->convertLocalToWorldPosition(Vector3(0,0,-15));*/
        cameraPosition = _player->getPosition() + Vector3(0,0,-10);
        pointToTarget = _player->getPosition() + Vector3(0,0,-15);
      _extendedCamera->setTightness(1.0f);
-    }else{
-       cameraPosition = _player->getPosition() + Vector3(0,20,1); 
-       pointToTarget = _player->getPosition() + Vector3(0,15,0); 
-       cameraPosition += Vector3(0,cameraZoom,0);
-       pointToTarget += Vector3(0,cameraZoom,0);
-     _extendedCamera->setTightness(0.1f);
-    }
 
      _extendedCamera->update(evt.timeSinceLastFrame,cameraPosition,pointToTarget);
      
-  }
 
   double unitOfTime = evt.timeSinceLastFrame * 10;
 

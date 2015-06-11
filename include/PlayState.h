@@ -61,6 +61,7 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState
   bool frameEnded (const Ogre::FrameEvent& evt);
 
   double getTimeSinceLastTime();
+  bool Raycast_world(const btVector3 &Start, btVector3 &End, btVector3 &Normal); 
 
   // Heredados de Ogre::Singleton.
   static PlayState& getSingleton ();
@@ -96,7 +97,6 @@ Ogre::Light* light;
   bool _right;
 
   bool _ball;
-  bool _firstperson;
   bool _leftShooting;
 
   bool _win;
