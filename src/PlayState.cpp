@@ -18,7 +18,7 @@ bool PlayState::Raycast_world(const btVector3 &Start, btVector3 &End, bool floor
 
     _world->getBulletDynamicsWorld()->rayTest(Start, End, res); // m_btWorld is btDiscreteDynamicsWorld
     double stepDistance = _player->getPosition().y-res.m_hitPointWorld.getY(); 
-    std::cout <<stepDistance << std::endl;
+   // std::cout <<stepDistance << std::endl;
     if(stepDistance > 0&& stepDistance < 2.5 && floorCheck){
       _ySpeed += 34*_lastTime;
     }
@@ -275,12 +275,19 @@ PlayState::enter ()
  // _shapes.push_back(Shape);
   _bodies.push_back(rigidBodyPlane);
 
+  //Timers
+   _backwardTimer=Ogre::Timer();
+
+  //Variables
+
+   _backwardVectors = std::deque<Vector3>();
    _forward = false;
    _back = false;
    _left = false;
    _right = false;
    _ball = false;
    _leftShooting = false;
+   _reverse = false;
    _win = false;
    _cameraZoom = 0;
    _newtons = 0;
@@ -313,6 +320,36 @@ PlayState::frameStarted
   _lastTime= evt.timeSinceLastFrame;
   _world->stepSimulation(_lastTime); // Actualizar simulacion Bullet
 
+  //Back in time Logic
+  if(_backwardTimer.getMilliseconds() > 100 && !_reverse){
+
+    _backwardTimer=Ogre::Timer();
+    std::cout << _backwardVectors.size() << std::endl;
+    Vector3 newPosition = _player->getPosition();
+    _backwardVectors.push_back(std::move(newPosition));
+    
+    if(_backwardVectors.size() > 120){
+      _backwardVectors.pop_front();
+    }
+  }
+  if(_reverse && !_backwardVectors.empty()){
+    //Block input
+   _forward = false;
+   _back = false;
+   _left = false;
+   _right = false;
+
+   Vector3 lastPosition = _backwardVectors.back();
+   Vector3 goingTo = lastPosition - _player->getPosition() ;
+   Vector3 normalisedDelta = goingTo.normalisedCopy()*evt.timeSinceLastFrame*10;
+   _player->translate(normalisedDelta);
+   std::cout << goingTo.length() << std::endl;
+   if(goingTo.length() < 0.5){
+    _backwardVectors.pop_back();
+   }
+   _ySpeed = 0;
+
+  }
   //Win Logic
   if(4 > _player->getPosition().distance(Vector3(-95,-28,31))){
     _win = true;
@@ -393,7 +430,7 @@ PlayState::frameStarted
   
   if(Raycast_world(playerPosition, goingTo, true) && _ySpeed <=0){
     _ySpeed=0;
-  }else{
+  }else if(!_reverse){
     _ySpeed = _ySpeed - 25*evt.timeSinceLastFrame;
     _player->translate(0,_ySpeed*evt.timeSinceLastFrame,0);
   }

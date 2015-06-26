@@ -86,6 +86,7 @@ Ogre::Light* light;
   std::deque <OgreBulletCollisions::CollisionShape *>  _shapes;
   std::deque <Vector3> _backwardVectors;
 
+  Ogre::Timer _backwardTimer;
   double _lastTime;
   int _changes;
 
@@ -96,6 +97,7 @@ Ogre::Light* light;
   bool _back;
   bool _left;
   bool _right;
+  bool _reverse;
 
   bool _ball;
   bool _leftShooting;
