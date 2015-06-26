@@ -61,7 +61,7 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState
   bool frameEnded (const Ogre::FrameEvent& evt);
 
   double getTimeSinceLastTime();
-  bool Raycast_world(const btVector3 &Start, btVector3 &End, btVector3 &Normal); 
+  bool Raycast_world(const btVector3 &Start, btVector3 &End, bool floorCheck=false); 
 
   // Heredados de Ogre::Singleton.
   static PlayState& getSingleton ();
@@ -84,6 +84,7 @@ Ogre::Light* light;
   OgreBulletDynamics::DynamicsWorld * _world;
   std::deque <OgreBulletDynamics::RigidBody *>         _bodies;
   std::deque <OgreBulletCollisions::CollisionShape *>  _shapes;
+  std::deque <Vector3> _backwardVectors;
 
   double _lastTime;
   int _changes;
@@ -103,6 +104,7 @@ Ogre::Light* light;
 
   double _newtons;
   double _cameraZoom;
+  double _ySpeed;
   
   TrackManager* _pTrackManager;
   SoundFXManager* _pSoundFXManager;

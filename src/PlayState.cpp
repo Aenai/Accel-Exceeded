@@ -12,17 +12,15 @@ using namespace Ogre;
 template<> PlayState* Ogre::Singleton<PlayState>::msSingleton = 0;
 
 // Performs raycasting on the world and returns the point of collision
-bool PlayState::Raycast_world(const btVector3 &Start, btVector3 &End, btVector3 &Normal) {
+bool PlayState::Raycast_world(const btVector3 &Start, btVector3 &End, bool floorCheck) {
 
     btCollisionWorld::ClosestRayResultCallback res(Start, End);
 
     _world->getBulletDynamicsWorld()->rayTest(Start, End, res); // m_btWorld is btDiscreteDynamicsWorld
-    
-
-    if(res.hasHit()){
-        //printf("Collision at: <%.2f, %.2f, %.2f>\n", res.m_hitPointWorld.getX(), res.m_hitPointWorld.getY(), res.m_hitPointWorld.getZ());
-        //_coordVisor->setPosition(
-         //   Vector3(res.m_hitPointWorld.getX(), res.m_hitPointWorld.getY(), res.m_hitPointWorld.getZ()));
+    double stepDistance = _player->getPosition().y-res.m_hitPointWorld.getY(); 
+    std::cout <<stepDistance << std::endl;
+    if(stepDistance > 0&& stepDistance < 2.5 && floorCheck){
+      _ySpeed += 34*_lastTime;
     }
     return res.hasHit();
 }
@@ -266,6 +264,7 @@ PlayState::enter ()
 		     Quaternion(0,0,-180,1) /* Orientacion */);
  rigidBoxPlayer->getBulletRigidBody()->setLinearFactor(btVector3(1,1,1));
  rigidBoxPlayer->getBulletRigidBody()->setAngularFactor(btVector3(0,1,0));
+ rigidBoxPlayer->setKinematicObject(true);
 	//Robot Animation
 	//_animBlender = new AnimationBlender(_sceneMgr->getEntity("Robotillo"));
   
@@ -338,79 +337,65 @@ PlayState::frameStarted
   //Movement Logic
   btVector3 playerVelocity = rigidBoxPlayer->getBulletRigidBody()->getLinearVelocity();
 
+  double speed = 0.3;
   Quaternion prueba = _camera->getOrientation();
+  Vector3 cameraDirection = _camera->getDirection();
+  cameraDirection.y = 0;
 
   if (_forward) {
-      rigidBoxPlayer->disableDeactivation();
-      Vector3 destiny;
-          Vector3 direction = _camera->getDirection();
-          direction.y = 0;
-          destiny = _player->getPosition() +  direction * 10;
-      Vector3 delta = destiny - _player->getPosition();
-      Vector3 normalisedDelta = delta.normalisedCopy();
-      if(inAbsoluteRange(playerVelocity,7) || _ball){
-        rigidBoxPlayer->getBulletRigidBody()->
-        applyCentralForce(btVector3(normalisedDelta.x,normalisedDelta.y,normalisedDelta.z)*8000*_lastTime);
-      }
+
+  Vector3 ogrePos = _player->getPosition();
+  const btVector3 playerPosition(ogrePos.x,ogrePos.y,ogrePos.z);
+  Vector3 forwardLimit = cameraDirection * 2;
+  btVector3 goingTo(ogrePos.x+forwardLimit.x,ogrePos.y,ogrePos.z+forwardLimit.z);
+  
+    if(!Raycast_world(playerPosition, goingTo)){
+       _player->translate(cameraDirection*speed);
+    }
   }
   if (_back) {
-    rigidBoxPlayer->disableDeactivation();
-    Vector3 destiny;
-          Vector3 direction = _camera->getDirection();
-          direction.y = 0;
-          destiny = _player->getPosition() -  direction * 10;
-    Vector3 delta = destiny - _player->getPosition();
-    Vector3 normalisedDelta = delta.normalisedCopy();
-    if(inAbsoluteRange(playerVelocity,7) || _ball){
-      rigidBoxPlayer->getBulletRigidBody()->
-      applyCentralForce(btVector3(normalisedDelta.x,-normalisedDelta.y,normalisedDelta.z)*8000*_lastTime);
-    }
+    Vector3 ogrePos = _player->getPosition();
+    const btVector3 playerPosition(ogrePos.x,ogrePos.y,ogrePos.z);
+    Vector3 forwardLimit = -cameraDirection * 2;
+    btVector3 goingTo(ogrePos.x+forwardLimit.x,ogrePos.y,ogrePos.z+forwardLimit.z);
+    
+    if(!Raycast_world(playerPosition, goingTo)){
+         _player->translate(-cameraDirection*speed);
+      }
   }
   float maxAngular = 0.5;
   if (_left) {
-    rigidBoxPlayer->disableDeactivation();
-      Vector3 destiny;
-          Vector3 direction = _camera->getDirection();
-          direction.y = 0;
-          destiny = _player->getPosition() - Quaternion(Degree(-90),Vector3::UNIT_Y) * direction * 10;
-      Vector3 delta = destiny - _player->getPosition();
-      Vector3 normalisedDelta = delta.normalisedCopy();
-      if(inAbsoluteRange(playerVelocity,7) || _ball){
-        rigidBoxPlayer->getBulletRigidBody()->
-        applyCentralForce(btVector3(normalisedDelta.x,-normalisedDelta.y,normalisedDelta.z)*18000*_lastTime);
+    Vector3 ogrePos = _player->getPosition();
+    const btVector3 playerPosition(ogrePos.x,ogrePos.y,ogrePos.z);
+    Vector3 destiny = Quaternion(Degree(-90),Vector3::UNIT_Y) * cameraDirection;
+    Vector3 forwardLimit = -destiny *2;
+    btVector3 goingTo(ogrePos.x+forwardLimit.x,ogrePos.y,ogrePos.z+forwardLimit.z);
+    
+    if(!Raycast_world(playerPosition, goingTo)){
+         _player->translate(-destiny*speed);
       }
   }
   if (_right) {
-      Vector3 destiny;
-      Vector3 direction = _camera->getDirection();
-      direction.y = 0;
-      destiny = _player->getPosition() - Quaternion(Degree(90),Vector3::UNIT_Y) * direction * 10;
-      Vector3 delta = destiny - _player->getPosition();
-      Vector3 normalisedDelta = delta.normalisedCopy();
-      if(inAbsoluteRange(playerVelocity,7) || _ball){
-        rigidBoxPlayer->getBulletRigidBody()->
-        applyCentralForce(btVector3(normalisedDelta.x,-normalisedDelta.y,normalisedDelta.z)*18000*_lastTime);
+    Vector3 ogrePos = _player->getPosition();
+    const btVector3 playerPosition(ogrePos.x,ogrePos.y,ogrePos.z);
+    Vector3 destiny = Quaternion(Degree(-90),Vector3::UNIT_Y) * cameraDirection;
+    Vector3 forwardLimit = destiny *2;
+    btVector3 goingTo(ogrePos.x+forwardLimit.x,ogrePos.y,ogrePos.z+forwardLimit.z);
+    
+    if(!Raycast_world(playerPosition, goingTo)){
+         _player->translate(destiny*speed);
       }
   }
   // Aero Logic
-  Vector3 ogrePos = _player->getPosition()-Vector3(0,1.9,0);
+  Vector3 ogrePos = _player->getPosition();
   const btVector3 playerPosition(ogrePos.x,ogrePos.y,ogrePos.z);
-  btVector3 goingTo(ogrePos.x,ogrePos.y-5,ogrePos.z);
-  btVector3 mariloles;
- // std::cout << Raycast_world(playerPosition, goingTo, mariloles) << std::endl; 
+  btVector3 goingTo(ogrePos.x,ogrePos.y-3,ogrePos.z);
   
-  if(Raycast_world(playerPosition, goingTo, mariloles)){
-      rigidBoxPlayer->disableDeactivation();
-      Vector3 destiny;
-          Vector3 direction(0,4,0);
-          destiny = _player->getPosition() +  direction * 10;
-      Vector3 delta = destiny - _player->getPosition();
-      Vector3 normalisedDelta = delta.normalisedCopy();
-        rigidBoxPlayer->getBulletRigidBody()->
-        applyCentralForce(btVector3(normalisedDelta.x,normalisedDelta.y,normalisedDelta.z)*700*_lastTime);
-   /* double x = _player->getPosition().x, y = _player->getPosition().y, z = _player->getPosition().z;
-    btVector3 delta = goingTo - btVector3(x,y,z);
-    rigidBoxPlayer->getBulletRigidBody()->translate(delta);*/
+  if(Raycast_world(playerPosition, goingTo, true) && _ySpeed <=0){
+    _ySpeed=0;
+  }else{
+    _ySpeed = _ySpeed - 25*evt.timeSinceLastFrame;
+    _player->translate(0,_ySpeed*evt.timeSinceLastFrame,0);
   }
   
   // Shoot Logic
@@ -480,14 +465,10 @@ PlayState::keyPressed
   }
 
   if(e.key == OIS::KC_SPACE){
-      rigidBoxPlayer->disableDeactivation();
-      Vector3 destiny;
-          Vector3 direction(0,4,0);
-          destiny = _player->getPosition() +  direction * 10;
-      Vector3 delta = destiny - _player->getPosition();
-      Vector3 normalisedDelta = delta.normalisedCopy();
-        rigidBoxPlayer->getBulletRigidBody()->
-        applyCentralForce(btVector3(normalisedDelta.x,normalisedDelta.y,normalisedDelta.z)*118000*_lastTime);
+    _ySpeed = 20;
+  }
+  if(e.key == OIS::KC_B){
+    _reverse = true;
   }
 
   if (e.key == OIS::KC_UP) {
@@ -548,6 +529,9 @@ PlayState::keyReleased
   }
   if (e.key == OIS::KC_D) {
     _right = false;
+  }
+  if(e.key == OIS::KC_B){
+    _reverse = false;
   }
   _animationUpdater->keyReleased(e);
   _inputHandler->keyReleased(e);

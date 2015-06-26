@@ -1,0 +1,296 @@
+17:43:22: Creating resource group General
+17:43:22: Creating resource group Internal
+17:43:22: Creating resource group Autodetect
+17:43:22: SceneManagerFactory for type 'DefaultSceneManager' registered.
+17:43:22: Registering ResourceManager for type Material
+17:43:22: Registering ResourceManager for type Mesh
+17:43:22: Registering ResourceManager for type Skeleton
+17:43:22: MovableObjectFactory for type 'ParticleSystem' registered.
+17:43:22: OverlayElementFactory for type Panel registered.
+17:43:22: OverlayElementFactory for type BorderPanel registered.
+17:43:22: OverlayElementFactory for type TextArea registered.
+17:43:22: Registering ResourceManager for type Font
+17:43:22: ArchiveFactory for archive type FileSystem registered.
+17:43:22: ArchiveFactory for archive type Zip registered.
+17:43:22: ArchiveFactory for archive type EmbeddedZip registered.
+17:43:22: DDS codec registering
+17:43:22: FreeImage version: 3.15.4
+17:43:22: This program uses FreeImage, a free, open source image library supporting all common bitmap formats. See http://freeimage.sourceforge.net for details
+17:43:22: Supported formats: bmp,ico,jpg,jif,jpeg,jpe,jng,koa,iff,lbm,mng,pbm,pbm,pcd,pcx,pgm,pgm,png,ppm,ppm,ras,tga,targa,tif,tiff,wap,wbmp,wbm,psd,cut,xbm,xpm,gif,hdr,g3,sgi,exr,j2k,j2c,jp2,pfm,pct,pict,pic,3fr,arw,bay,bmq,cap,cine,cr2,crw,cs1,dc2,dcr,drf,dsc,dng,erf,fff,ia,iiq,k25,kc2,kdc,mdc,mef,mos,mrw,nef,nrw,orf,pef,ptx,pxn,qtk,raf,raw,rdc,rw2,rwl,rwz,sr2,srf,srw,sti
+17:43:22: Registering ResourceManager for type HighLevelGpuProgram
+17:43:22: Registering ResourceManager for type Compositor
+17:43:22: MovableObjectFactory for type 'Entity' registered.
+17:43:22: MovableObjectFactory for type 'Light' registered.
+17:43:22: MovableObjectFactory for type 'BillboardSet' registered.
+17:43:22: MovableObjectFactory for type 'ManualObject' registered.
+17:43:22: MovableObjectFactory for type 'BillboardChain' registered.
+17:43:22: MovableObjectFactory for type 'RibbonTrail' registered.
+17:43:22: Loading library /usr/lib/x86_64-linux-gnu/OGRE-1.8.0/RenderSystem_GL
+17:43:22: Installing plugin: GL RenderSystem
+17:43:22: OpenGL Rendering Subsystem created.
+17:43:22: Plugin successfully installed
+17:43:22: *-*-* OGRE Initialising
+17:43:22: *-*-* Version 1.8.1 (Byatis)
+17:43:22: Creating resource group Fonts
+17:43:22: Added resource location 'media/Menu/fonts' of type 'FileSystem' to resource group 'Fonts'
+17:43:22: Added resource location 'media' of type 'FileSystem' to resource group 'General'
+17:43:22: Added resource location 'media/PaddleMedia' of type 'FileSystem' to resource group 'General'
+17:43:22: Added resource location 'media/Robotillo' of type 'FileSystem' to resource group 'General'
+17:43:22: Added resource location 'media/Level1' of type 'FileSystem' to resource group 'General'
+17:43:22: Added resource location 'media/Rebotador' of type 'FileSystem' to resource group 'General'
+17:43:22: Added resource location 'media/Catapulta' of type 'FileSystem' to resource group 'General'
+17:43:22: Added resource location 'media/Menu/xml_schemas' of type 'FileSystem' to resource group 'General'
+17:43:22: Creating resource group Imagesets
+17:43:22: Added resource location 'media/Menu/imagesets' of type 'FileSystem' to resource group 'Imagesets'
+17:43:22: Creating resource group Layouts
+17:43:22: Added resource location 'media/Menu/layouts' of type 'FileSystem' to resource group 'Layouts'
+17:43:22: Creating resource group LookNFeel
+17:43:22: Added resource location 'media/Menu/looknfeel' of type 'FileSystem' to resource group 'LookNFeel'
+17:43:22: Creating resource group Schemes
+17:43:22: Added resource location 'media/Menu/schemes' of type 'FileSystem' to resource group 'Schemes'
+17:43:22: CPU Identifier & Features
+17:43:22: -------------------------
+17:43:22:  *   CPU ID: GenuineIntel: Intel(R) Core(TM) i7-4650U CPU @ 1.70GHz
+17:43:22:  *      SSE: yes
+17:43:22:  *     SSE2: yes
+17:43:22:  *     SSE3: yes
+17:43:22:  *      MMX: yes
+17:43:22:  *   MMXEXT: yes
+17:43:22:  *    3DNOW: no
+17:43:22:  * 3DNOWEXT: no
+17:43:22:  *     CMOV: yes
+17:43:22:  *      TSC: yes
+17:43:22:  *      FPU: yes
+17:43:22:  *      PRO: yes
+17:43:22:  *       HT: no
+17:43:22: -------------------------
+17:43:22: ******************************
+*** Starting GLX Subsystem ***
+******************************
+17:43:22: Registering ResourceManager for type Texture
+17:43:22: GLRenderSystem::_createRenderWindow "Physicorum", 800x600 windowed  miscParams: FSAA=0 displayFrequency=56 MHz gamma=No vsync=No 
+17:43:22: GLXWindow::create used FBConfigID = 66
+17:43:22: GL_VERSION = 2.1 INTEL-10.6.20
+17:43:22: GL_VENDOR = Parallels and Intel Inc.
+17:43:22: GL_RENDERER = Parallels using Intel HD Graphics 5000 OpenGL Engine
+17:43:22: GL_EXTENSIONS = GL_EXT_texture3D GL_ARB_color_buffer_float GL_ARB_depth_texture GL_ARB_draw_buffers GL_ARB_fragment_program GL_ARB_fragment_program_shadow GL_ARB_fragment_shader GL_ARB_framebuffer_object GL_ARB_half_float_pixel GL_ARB_half_float_vertex GL_ARB_multisample GL_ARB_multitexture GL_ARB_occlusion_query GL_ARB_pixel_buffer_object GL_ARB_point_parameters GL_ARB_point_sprite GL_ARB_shader_objects GL_ARB_shader_texture_lod GL_ARB_shading_language_100 GL_ARB_shadow GL_ARB_texture_border_clamp GL_ARB_texture_compression GL_ARB_texture_compression_rgtc GL_ARB_texture_cube_map GL_ARB_texture_env_add GL_ARB_texture_env_combine GL_ARB_texture_env_crossbar GL_ARB_texture_env_dot3 GL_ARB_texture_float GL_ARB_texture_mirrored_repeat GL_ARB_texture_non_power_of_two GL_ARB_texture_rectangle GL_ARB_texture_rg GL_ARB_transpose_matrix GL_ARB_vertex_blend GL_ARB_vertex_buffer_object GL_ARB_vertex_program GL_ARB_vertex_shader GL_ARB_window_pos GL_EXT_abgr GL_EXT_bgra GL_EXT_blend_color GL_EXT_blend_equation_separate GL_EXT_blend_func_separate GL_EXT_blend_minmax GL_EXT_blend_subtract GL_EXT_clip_volume_hint GL_EXT_draw_buffers2 GL_EXT_draw_range_elements GL_EXT_fog_coord GL_EXT_framebuffer_blit GL_EXT_framebuffer_multisample GL_EXT_framebuffer_object GL_EXT_framebuffer_sRGB GL_EXT_geometry_shader4 GL_EXT_gpu_program_parameters GL_EXT_multi_draw_arrays GL_EXT_packed_depth_stencil GL_EXT_packed_float GL_EXT_provoking_vertex GL_EXT_rescale_normal GL_EXT_secondary_color GL_EXT_separate_specular_color GL_EXT_shadow_funcs GL_EXT_stencil_two_side GL_EXT_stencil_wrap GL_EXT_texture_array GL_EXT_texture_compression_dxt1 GL_EXT_texture_compression_s3tc GL_EXT_texture_env_add GL_EXT_texture_filter_anisotropic GL_EXT_texture_integer GL_EXT_texture_lod_bias GL_EXT_texture_rectangle GL_EXT_texture_shared_exponent GL_EXT_texture_sRGB GL_EXT_vertex_array_bgra GL_ATI_separate_stencil GL_ATI_texture_env_combine3 GL_ATI_texture_float GL_ATI_texture_mirror_once GL_NV_blend_square GL_NV_depth_clamp GL_NV_fog_distance GL_NV_light_max_exponent GL_NV_texgen_reflection GL_SGIS_generate_mipmap GL_SGIS_texture_edge_clamp GL_SGIS_texture_lod GL_EXT_texture_env_combine GL_NV_texture_rectangle GL_EXT_texture_edge_clamp GL_ARB_map_buffer_range
+17:43:22: Supported GLX extensions: GLX_ARB_get_proc_address GLX_SGIX_fbconfig GLX_EXT_texture_from_pixmap
+17:43:22: ***************************
+17:43:22: *** GL Renderer Started ***
+17:43:22: ***************************
+17:43:22: Registering ResourceManager for type GpuProgram
+17:43:22: GLSL support detected
+17:43:22: GL: Using GL_EXT_framebuffer_object for rendering to textures (best)
+17:43:22: FBO PF_UNKNOWN depth/stencil support: D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
+17:43:22: FBO PF_R5G6B5 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
+17:43:22: FBO PF_B5G6R5 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
+17:43:22: FBO PF_A4R4G4B4 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
+17:43:22: FBO PF_A1R5G5B5 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
+17:43:22: FBO PF_R8G8B8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
+17:43:22: FBO PF_B8G8R8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
+17:43:22: FBO PF_A8R8G8B8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
+17:43:22: FBO PF_B8G8R8A8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
+17:43:22: FBO PF_A2R10G10B10 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
+17:43:22: FBO PF_A2B10G10R10 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
+17:43:22: FBO PF_FLOAT16_RGB depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
+17:43:22: FBO PF_FLOAT16_RGBA depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
+17:43:22: FBO PF_FLOAT32_RGB depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
+17:43:22: FBO PF_FLOAT32_RGBA depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
+17:43:23: FBO PF_X8R8G8B8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
+17:43:23: FBO PF_X8B8G8R8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
+17:43:23: FBO PF_SHORT_RGBA depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
+17:43:23: FBO PF_R3G3B2 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
+17:43:23: FBO PF_SHORT_RGB depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
+17:43:23: [GL] : Valid FBO targets PF_UNKNOWN PF_R5G6B5 PF_B5G6R5 PF_A4R4G4B4 PF_A1R5G5B5 PF_R8G8B8 PF_B8G8R8 PF_A8R8G8B8 PF_B8G8R8A8 PF_A2R10G10B10 PF_A2B10G10R10 PF_FLOAT16_RGB PF_FLOAT16_RGBA PF_FLOAT32_RGB PF_FLOAT32_RGBA PF_X8R8G8B8 PF_X8B8G8R8 PF_SHORT_RGBA PF_R3G3B2 PF_SHORT_RGB 
+17:43:23: RenderSystem capabilities
+17:43:23: -------------------------
+17:43:23: RenderSystem Name: OpenGL Rendering Subsystem
+17:43:23: GPU Vendor: intel
+17:43:23: Device Name: Parallels using Intel HD Graphics 5000 OpenGL Engine
+17:43:23: Driver Version: 2.1.0.0
+17:43:23:  * Fixed function pipeline: yes
+17:43:23:  * Hardware generation of mipmaps: no
+17:43:23:  * Texture blending: yes
+17:43:23:  * Anisotropic texture filtering: yes
+17:43:23:  * Dot product texture operation: yes
+17:43:23:  * Cube mapping: yes
+17:43:23:  * Hardware stencil buffer: yes
+17:43:23:    - Stencil depth: 8
+17:43:23:    - Two sided stencil support: yes
+17:43:23:    - Wrap stencil values: yes
+17:43:23:  * Hardware vertex / index buffers: yes
+17:43:23:  * Vertex programs: yes
+17:43:23:  * Number of floating-point constants for vertex programs: 1024
+17:43:23:  * Number of integer constants for vertex programs: 0
+17:43:23:  * Number of boolean constants for vertex programs: 0
+17:43:23:  * Fragment programs: yes
+17:43:23:  * Number of floating-point constants for fragment programs: 1024
+17:43:23:  * Number of integer constants for fragment programs: 0
+17:43:23:  * Number of boolean constants for fragment programs: 0
+17:43:23:  * Geometry programs: yes
+17:43:23:  * Number of floating-point constants for geometry programs: 4096
+17:43:23:  * Number of integer constants for geometry programs: 0
+17:43:23:  * Number of boolean constants for geometry programs: 0
+17:43:23:  * Supported Shader Profiles: arbfp1 arbvp1 glsl gp4gp gpu_gp nvgp4
+17:43:23:  * Texture Compression: yes
+17:43:23:    - DXT: yes
+17:43:23:    - VTC: no
+17:43:23:    - PVRTC: no
+17:43:23:  * Scissor Rectangle: yes
+17:43:23:  * Hardware Occlusion Query: yes
+17:43:23:  * User clip planes: yes
+17:43:23:  * VET_UBYTE4 vertex element type: yes
+17:43:23:  * Infinite far plane projection: yes
+17:43:23:  * Hardware render-to-texture: yes
+17:43:23:  * Floating point textures: yes
+17:43:23:  * Non-power-of-two textures: yes
+17:43:23:  * Volume textures: yes
+17:43:23:  * Multiple Render Targets: 8
+17:43:23:    - With different bit depths: yes
+17:43:23:  * Point Sprites: yes
+17:43:23:  * Extended point parameters: yes
+17:43:23:  * Max Point Size: 255.875
+17:43:23:  * Vertex texture fetch: yes
+17:43:23:  * Number of world matrices: 0
+17:43:23:  * Number of texture units: 16
+17:43:23:  * Stencil buffer depth: 8
+17:43:23:  * Number of vertex blend matrices: 0
+17:43:23:    - Max vertex textures: 16
+17:43:23:    - Vertex textures shared: yes
+17:43:23:  * Render to Vertex Buffer : no
+17:43:23:  * GL 1.5 without VBO workaround: no
+17:43:23:  * Frame Buffer objects: yes
+17:43:23:  * Frame Buffer objects (ARB extension): no
+17:43:23:  * Frame Buffer objects (ATI extension): no
+17:43:23:  * PBuffer support: yes
+17:43:23:  * GL 1.5 without HW-occlusion workaround: no
+17:43:23:  * Separate shader objects: no
+17:43:23: DefaultWorkQueue('Root') initialising on thread 2b7215db6600.
+17:43:23: DefaultWorkQueue('Root')::WorkerFunc - thread 2b7223edb700 starting.
+17:43:23: DefaultWorkQueue('Root')::WorkerFunc - thread 2b7223cda700 starting.
+17:43:23: Particle Renderer Type 'billboard' registered
+17:43:23: Parsing scripts for resource group Autodetect
+17:43:23: Finished parsing scripts for resource group Autodetect
+17:43:23: Creating resources for group Autodetect
+17:43:23: All done
+17:43:23: Parsing scripts for resource group Fonts
+17:43:23: Finished parsing scripts for resource group Fonts
+17:43:23: Creating resources for group Fonts
+17:43:23: All done
+17:43:23: Parsing scripts for resource group General
+17:43:23: Parsing script Cube.material
+17:43:23: Parsing script panel.material
+17:43:23: Parsing script pointer.material
+17:43:23: Parsing script Ground.material
+17:43:23: Parsing script Scene.material
+17:43:23: Parsing script AxisMaterial.material
+17:43:23: Parsing script PlateMaterial.material
+17:43:23: Parsing script HeadMaterial.material
+17:43:23: Parsing script robot2blend.material
+17:43:23: Parsing script WheelMaterial.material
+17:43:23: Parsing script FloorMaterial.material
+17:43:23: Parsing script PlatformMaterial.material
+17:43:23: Parsing script WallMaterial.material
+17:43:23: Parsing script Rebotador.material
+17:43:23: Parsing script CristalMaterial.material
+17:43:23: Parsing script CarbonTexture.material
+17:43:23: Parsing script MetalCatMaterial.material
+17:43:23: Parsing script Blue.fontdef
+17:43:23: Parsing script info.overlay
+17:43:23: Texture: Logo_Physicorum.tga: Loading 1 faces(PF_A8R8G8B8,702x150x1) with 9 generated mipmaps from Image. Internal format is PF_A8R8G8B8,702x150x1.
+17:43:23: Texture: Finish.tga: Loading 1 faces(PF_A8R8G8B8,830x300x1) with 9 generated mipmaps from Image. Internal format is PF_A8R8G8B8,830x300x1.
+17:43:23: Texture: panel.tga: Loading 1 faces(PF_A8R8G8B8,250x75x1) with 7 generated mipmaps from Image. Internal format is PF_A8R8G8B8,250x75x1.
+17:43:23: Finished parsing scripts for resource group General
+17:43:23: Creating resources for group General
+17:43:23: All done
+17:43:23: Parsing scripts for resource group Imagesets
+17:43:23: Finished parsing scripts for resource group Imagesets
+17:43:23: Creating resources for group Imagesets
+17:43:23: All done
+17:43:23: Parsing scripts for resource group Internal
+17:43:23: Finished parsing scripts for resource group Internal
+17:43:23: Creating resources for group Internal
+17:43:23: All done
+17:43:23: Parsing scripts for resource group Layouts
+17:43:23: Finished parsing scripts for resource group Layouts
+17:43:23: Creating resources for group Layouts
+17:43:23: All done
+17:43:23: Parsing scripts for resource group LookNFeel
+17:43:23: Finished parsing scripts for resource group LookNFeel
+17:43:23: Creating resources for group LookNFeel
+17:43:23: All done
+17:43:23: Parsing scripts for resource group Schemes
+17:43:23: Finished parsing scripts for resource group Schemes
+17:43:23: Creating resources for group Schemes
+17:43:23: All done
+17:43:23: Mesh: Loading Level1Mesh.mesh.
+17:43:23: Texture: LevelTexture.png: Loading 1 faces(PF_R8G8B8,3026x2000x1) with 11 generated mipmaps from Image. Internal format is PF_X8R8G8B8,3026x2000x1.
+17:43:23: Mesh: Loading RobotilloMesh.mesh.
+17:43:23: Skeleton: Loading RobotilloMesh.skeleton
+17:43:23: Texture: RobotTexture.png: Loading 1 faces(PF_R8G8B8,2500x1625x1) with 11 generated mipmaps from Image. Internal format is PF_X8R8G8B8,2500x1625x1.
+17:43:24: Texture: DarkWheel.png: Loading 1 faces(PF_R8G8B8,1879x1317x1) with 10 generated mipmaps from Image. Internal format is PF_X8R8G8B8,1879x1317x1.
+17:43:24: Texture: _cegui_ogre_0: Loading 1 faces(PF_A8B8G8R8,600x400x1) with 0 generated mipmaps from Image. Internal format is PF_A8R8G8B8,600x400x1.
+17:43:24: Texture: _cegui_ogre_1: Loading 1 faces(PF_A8B8G8R8,600x400x1) with 0 generated mipmaps from Image. Internal format is PF_A8R8G8B8,600x400x1.
+17:43:24: Texture: spot_shadow_fade.png: Loading 1 faces(PF_R8G8B8,128x128x1) with 7 generated mipmaps from Image. Internal format is PF_X8R8G8B8,128x128x1.
+17:43:24: Texture: _cegui_ogre_2: Loading 1 faces(PF_A8B8G8R8,256x256x1) with 0 generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x256x1.
+17:43:24: Registering ResourceManager for type Track
+17:43:24: Registering ResourceManager for type SoundFX
+17:43:24: Mesh: Loading RebotadorMesh.mesh.
+17:43:24: Skeleton: Loading RebotadorMesh.skeleton
+17:43:24: Texture: RebounderTexture.png: Loading 1 faces(PF_R8G8B8,900x600x1) with 9 generated mipmaps from Image. Internal format is PF_X8R8G8B8,900x600x1.
+17:43:24: WARNING: the mesh 'RebotadorMesh.mesh' includes vertices without bone assignments. Those vertices will transform to wrong position when skeletal animation enabled. To eliminate this, assign at least one bone assignment per vertex on your mesh.
+17:43:24: Texture: marble.jpg: Loading 1 faces(PF_R8G8B8,1024x1024x1) with 10 generated mipmaps from Image. Internal format is PF_X8R8G8B8,1024x1024x1.
+17:43:24: Font Blue using texture size 512x512
+17:43:24: Info: Freetype returned null for character 127 in font Blue
+17:43:24: Info: Freetype returned null for character 128 in font Blue
+17:43:24: Info: Freetype returned null for character 129 in font Blue
+17:43:24: Info: Freetype returned null for character 130 in font Blue
+17:43:24: Info: Freetype returned null for character 131 in font Blue
+17:43:24: Info: Freetype returned null for character 132 in font Blue
+17:43:24: Info: Freetype returned null for character 133 in font Blue
+17:43:24: Info: Freetype returned null for character 134 in font Blue
+17:43:24: Info: Freetype returned null for character 135 in font Blue
+17:43:24: Info: Freetype returned null for character 136 in font Blue
+17:43:24: Info: Freetype returned null for character 137 in font Blue
+17:43:24: Info: Freetype returned null for character 138 in font Blue
+17:43:24: Info: Freetype returned null for character 139 in font Blue
+17:43:24: Info: Freetype returned null for character 140 in font Blue
+17:43:24: Info: Freetype returned null for character 141 in font Blue
+17:43:24: Info: Freetype returned null for character 142 in font Blue
+17:43:24: Info: Freetype returned null for character 143 in font Blue
+17:43:24: Info: Freetype returned null for character 144 in font Blue
+17:43:24: Info: Freetype returned null for character 145 in font Blue
+17:43:24: Info: Freetype returned null for character 146 in font Blue
+17:43:24: Info: Freetype returned null for character 147 in font Blue
+17:43:24: Info: Freetype returned null for character 148 in font Blue
+17:43:24: Info: Freetype returned null for character 149 in font Blue
+17:43:24: Info: Freetype returned null for character 150 in font Blue
+17:43:24: Info: Freetype returned null for character 151 in font Blue
+17:43:24: Info: Freetype returned null for character 152 in font Blue
+17:43:24: Info: Freetype returned null for character 153 in font Blue
+17:43:24: Info: Freetype returned null for character 154 in font Blue
+17:43:24: Info: Freetype returned null for character 155 in font Blue
+17:43:24: Info: Freetype returned null for character 156 in font Blue
+17:43:24: Info: Freetype returned null for character 157 in font Blue
+17:43:24: Info: Freetype returned null for character 158 in font Blue
+17:43:24: Info: Freetype returned null for character 159 in font Blue
+17:43:24: Info: Freetype returned null for character 160 in font Blue
+17:43:24: Texture: BlueTexture: Loading 1 faces(PF_BYTE_LA,512x512x1) with 0 generated mipmaps from Image. Internal format is PF_BYTE_LA,512x512x1.
+17:44:22: DefaultWorkQueue('Root') shutting down on thread 2b7215db6600.
+17:44:22: DefaultWorkQueue('Root')::WorkerFunc - thread 2b7223edb700 stopped.
+17:44:22: DefaultWorkQueue('Root')::WorkerFunc - thread 2b7223cda700 stopped.
+17:44:22: *-*-* OGRE Shutdown
+17:44:22: Unregistering ResourceManager for type Compositor
+17:44:22: Unregistering ResourceManager for type Font
+17:44:22: Unregistering ResourceManager for type Skeleton
+17:44:22: Unregistering ResourceManager for type Mesh
+17:44:22: Unregistering ResourceManager for type HighLevelGpuProgram
+17:44:22: Uninstalling plugin: GL RenderSystem
+17:44:22: Unregistering ResourceManager for type GpuProgram
+17:44:22: ******************************
+*** Stopping GLX Subsystem ***
+******************************
+17:44:22: Unregistering ResourceManager for type Texture
+17:44:22: Plugin successfully uninstalled
+17:44:22: Unloading library /usr/lib/x86_64-linux-gnu/OGRE-1.8.0/RenderSystem_GL
+17:44:22: Unregistering ResourceManager for type Material
