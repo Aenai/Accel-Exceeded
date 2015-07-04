@@ -1,0 +1,78 @@
+<scene previous_export_time="1436032913.4537597" export_time="1436037475.0409033" formatVersion="1.0.1" exported_by="aenai" >
+  <nodes >
+    <node name="Sun" >
+      <position x="-81.711708" z="-15.280935" y="86.342125" />
+      <rotation qz="0.303663" qx="0.204378" qy="-0.839177" qw="0.402244" />
+      <scale x="1.000000" z="1.000000" y="1.000000" />
+      <user_data name="uid" value="100" type="int" />
+      <game >
+        <sensors />
+        <actuators />
+      </game>
+      <light name="Sun" shadow="true" type="directional" powerScale="1.159999966621399" >
+        <position x="-81.711708" z="-15.280935" y="86.342125" />
+        <lightAttenuation quadratic="0.0" constant="1.0" linear="0.04" range="5000" />
+        <direction x="0.099" z="0.674" y="-0.732" />
+        <colourDiffuse g="1.0" r="1.0" b="1.0" />
+        <colourSpecular g="1.0" r="1.0" b="1.0" />
+        <colourShadow g="1.0" r="1.0" b="1.0" />
+      </light>
+    </node>
+    <node name="Nivel" >
+      <position x="0.000000" z="-0.000000" y="0.000000" />
+      <rotation qz="-0.000000" qx="0.000000" qy="0.000000" qw="1.000000" />
+      <scale x="1.000000" z="1.000000" y="1.000000" />
+      <game >
+        <sensors />
+        <actuators />
+      </game>
+      <entity inertia_tensor="0.4000000059604645" lock_trans_z="False" damping_rot="0.10000000149011612" lock_rot_x="False" damping_trans="0.03999999910593033" physics_type="STATIC" velocity_max="0.0" lock_trans_y="False" ghost="False" mass="1.0" name="Nivel" anisotropic_friction="False" friction_z="1.0" actor="False" mass_radius="1.0" friction_x="1.0" meshFile="Nivel.mesh" lock_rot_z="False" lock_trans_x="False" velocity_min="0.0" lock_rot_y="False" friction_y="1.0" />
+    </node>
+  </nodes>
+  <externals >
+    <item type="material" >
+      <file name="/home/aenai/Escritorio/CEDV/Modelos/Pruebas/PJ/Level1/GlassMaterial.material" />
+    </item>
+    <item type="material" >
+      <file name="/home/aenai/Escritorio/CEDV/Modelos/Pruebas/PJ/Level1/Glass2Material.material" />
+    </item>
+    <item type="material" >
+      <file name="/home/aenai/Escritorio/CEDV/Modelos/Pruebas/PJ/Level1/Glass3Material.material" />
+    </item>
+    <item type="material" >
+      <file name="/home/aenai/Escritorio/CEDV/Modelos/Pruebas/PJ/Level1/FloorMaterial.001.material" />
+    </item>
+    <item type="material" >
+      <file name="/home/aenai/Escritorio/CEDV/Modelos/Pruebas/PJ/Level1/RoofMaterial.material" />
+    </item>
+    <item type="material" >
+      <file name="/home/aenai/Escritorio/CEDV/Modelos/Pruebas/PJ/Level1/WoodMaterial.material" />
+    </item>
+    <item type="material" >
+      <file name="/home/aenai/Escritorio/CEDV/Modelos/Pruebas/PJ/Level1/MetalDiamontMaterial.material" />
+    </item>
+    <item type="material" >
+      <file name="/home/aenai/Escritorio/CEDV/Modelos/Pruebas/PJ/Level1/PaintedMetalMaterial.material" />
+    </item>
+    <item type="material" >
+      <file name="/home/aenai/Escritorio/CEDV/Modelos/Pruebas/PJ/Level1/ElevatorDoorMaterial.material" />
+    </item>
+    <item type="material" >
+      <file name="/home/aenai/Escritorio/CEDV/Modelos/Pruebas/PJ/Level1/MetalMaterial.001.material" />
+    </item>
+    <item type="material" >
+      <file name="/home/aenai/Escritorio/CEDV/Modelos/Pruebas/PJ/Level1/LadderMaterial.001.material" />
+    </item>
+    <item type="material" >
+      <file name="/home/aenai/Escritorio/CEDV/Modelos/Pruebas/PJ/Level1/DoorMaterial.001.material" />
+    </item>
+    <item type="material" >
+      <file name="/home/aenai/Escritorio/CEDV/Modelos/Pruebas/PJ/Level1/CableMaterial.material" />
+    </item>
+  </externals>
+  <environment >
+    <colourDiffuse g="0.04445481300354004" r="0.04445481300354004" b="0.04445481300354004" />
+    <colourBackground g="0.04445481300354004" r="0.04445481300354004" b="0.04445481300354004" />
+    <colourAmbient g="0.0" r="0.0" b="0.0" />
+  </environment>
+</scene>

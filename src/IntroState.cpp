@@ -29,13 +29,13 @@ IntroState::enter ()
   _viewport = _root->getAutoCreatedWindow()->addViewport(_camera);
   _viewport->setBackgroundColour(Ogre::ColourValue(0, 0, 0));
   
-  Ogre::Entity* ent2 = _sceneMgr->createEntity("bottom", "Level1Mesh.mesh");
-  ent2->setCastShadows(true);
-  Ogre::SceneNode* bottom = _sceneMgr->createSceneNode("bottom");
-  bottom->attachObject(ent2);
-  _sceneMgr->getRootSceneNode()->addChild(bottom);
-  bottom->setScale(10,10,10);
-  bottom->setPosition(0,0,0);
+//  Ogre::Entity* ent2 = _sceneMgr->createEntity("bottom", "Level1Mesh.mesh");
+//  ent2->setCastShadows(true);
+//  Ogre::SceneNode* bottom = _sceneMgr->createSceneNode("bottom");
+//  bottom->attachObject(ent2);
+//  _sceneMgr->getRootSceneNode()->addChild(bottom);
+//  bottom->setScale(10,10,10);
+//  bottom->setPosition(0,0,0);
 
   //Robot Initialization
   Ogre::Entity* ent1 = _sceneMgr->createEntity("Robotillo", "RobotilloMesh.mesh");

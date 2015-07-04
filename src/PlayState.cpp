@@ -167,9 +167,9 @@ PlayState::enter ()
   // Creacion de los elementos iniciales del mundo
 
   // Creacion del track --------------------------------------------------
-  Entity *entity = _sceneMgr->createEntity("Level1Mesh.mesh");
+  Entity *entity = _sceneMgr->createEntity("Nivel.mesh");
   SceneNode *trackNode = _sceneMgr->createSceneNode("track");
-  scaleMesh(entity,Vector3(2,2,2));
+  scaleMesh(entity,Vector3(3,3,3));
   trackNode->attachObject(entity);
 
 
