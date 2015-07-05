@@ -150,6 +150,7 @@ PlayState::enter ()
   light2->setCastShadows(true);
 
   _changes = 0;
+  _jumps = 0;
 
 	_exitGame = false;
 
@@ -324,7 +325,6 @@ PlayState::frameStarted
   if(_backwardTimer.getMilliseconds() > 100 && !_reverse){
 
     _backwardTimer=Ogre::Timer();
-    std::cout << _backwardVectors.size() << std::endl;
     Vector3 newPosition = _player->getPosition();
     _backwardVectors.push_back(std::move(newPosition));
     
@@ -343,7 +343,6 @@ PlayState::frameStarted
    Vector3 goingTo = lastPosition - _player->getPosition() ;
    Vector3 normalisedDelta = goingTo.normalisedCopy()*evt.timeSinceLastFrame*10;
    _player->translate(normalisedDelta);
-   std::cout << goingTo.length() << std::endl;
    if(goingTo.length() < 0.5){
     _backwardVectors.pop_back();
    }
@@ -430,11 +429,18 @@ PlayState::frameStarted
   
   if(Raycast_world(playerPosition, goingTo, true) && _ySpeed <=0){
     _ySpeed=0;
+    _jumps = 0;
+    std::cout << "reset" << std::endl;
   }else if(!_reverse){
     _ySpeed = _ySpeed - 25*evt.timeSinceLastFrame;
     _player->translate(0,_ySpeed*evt.timeSinceLastFrame,0);
   }
   
+  goingTo = btVector3(ogrePos.x,ogrePos.y+3,ogrePos.z);
+  if(Raycast_world(playerPosition, goingTo) && _ySpeed >=0){
+    _ySpeed=0;
+  }
+
   // Shoot Logic
   /*
   if(_ball && _firstperson && _leftShooting){
@@ -501,8 +507,10 @@ PlayState::keyPressed
     _right = true;
   }
 
-  if(e.key == OIS::KC_SPACE){
+  if(e.key == OIS::KC_SPACE && _jumps < 2){
     _ySpeed = 20;
+    _jumps++;
+    std::cout << _jumps << std::endl;
   }
   if(e.key == OIS::KC_B){
     _reverse = true;

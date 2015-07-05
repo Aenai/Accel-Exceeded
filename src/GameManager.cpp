@@ -125,7 +125,7 @@ GameManager::configure ()
     }
   }
   
-  _renderWindow = _root->initialise(true, "Physicorum");
+  _renderWindow = _root->initialise(true, "AccelExceeded");
   
   Ogre::ResourceGroupManager::getSingleton().initialiseAllResourceGroups();
   

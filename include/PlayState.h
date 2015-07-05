@@ -89,6 +89,7 @@ Ogre::Light* light;
   Ogre::Timer _backwardTimer;
   double _lastTime;
   int _changes;
+  int _jumps;
 
   bool _exitGame;
 
