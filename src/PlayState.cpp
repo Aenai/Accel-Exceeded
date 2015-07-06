@@ -95,6 +95,7 @@ void scaleMesh(const Ogre::Entity *_ent, const Ogre::Vector3 &_scale)
 void
 PlayState::enter ()
 {
+  std::cout << "antes" << std::endl;
 	initSDL (); 
 	_root = Ogre::Root::getSingletonPtr();
 	
@@ -153,6 +154,9 @@ PlayState::enter ()
   _jumps = 0;
 
 	_exitGame = false;
+  std::cout << "antes" << std::endl;
+  _recordMgr = new RecordManager();
+  std::cout << "despues" << std::endl;
 
   //=============PHYSICS===========//
   // Creacion del mundo (definicion de los limites y la gravedad) ---
@@ -278,6 +282,7 @@ PlayState::enter ()
 
   //Timers
    _backwardTimer=Ogre::Timer();
+   _recordTimer = Ogre::Timer();
 
   //Variables
 
@@ -507,7 +512,7 @@ PlayState::keyPressed
     _right = true;
   }
 
-  if(e.key == OIS::KC_SPACE && _jumps < 2){
+  if(e.key == OIS::KC_SPACE && _jumps < 222){
     _ySpeed = 20;
     _jumps++;
     std::cout << _jumps << std::endl;

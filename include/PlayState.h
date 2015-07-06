@@ -35,6 +35,7 @@
 
 #include "TrackManager.h"
 #include "SoundFXManager.h"
+#include "RecordManager.h"
 
 #define PLAYER 1 << 0  // Mascara para el escenario
 #define CUBE1 1 << 1  // Mascara para objetos de tipo 1
@@ -70,10 +71,10 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState
  protected:
   Ogre::Root* _root;
   Ogre::SceneManager* _sceneMgr;
+  RecordManager* _recordMgr;
   Ogre::Viewport* _viewport;
   Ogre::Camera* _camera;
-  //AnimationBlender *_animBlender;
-Ogre::Light* light;
+  Ogre::Light* light;
 
   std::shared_ptr<InputHandler> _inputHandler;
   std::shared_ptr<AnimationUpdater> _animationUpdater;
@@ -87,6 +88,7 @@ Ogre::Light* light;
   std::deque <Vector3> _backwardVectors;
 
   Ogre::Timer _backwardTimer;
+  Ogre::Timer _recordTimer;
   double _lastTime;
   int _changes;
   int _jumps;
