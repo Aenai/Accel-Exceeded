@@ -1,0 +1,115 @@
+<scene exported_by="aenai" formatVersion="1.0.1" export_time="1436207655.552187" previous_export_time="1436141397.8989804" >
+  <nodes >
+    <node name="Sun.003" >
+      <position y="9.250798" z="0.646268" x="23.131794" />
+      <rotation qz="-0.520847" qw="0.750014" qx="0.244203" qy="0.326438" />
+      <scale y="1.000000" z="1.000000" x="1.000000" />
+      <game >
+        <sensors />
+        <actuators />
+      </game>
+      <light powerScale="1.0" type="directional" name="Sun.003" >
+        <position y="9.250798" z="0.646268" x="23.131794" />
+        <lightAttenuation linear="0.04" quadratic="0.0" range="5000" constant="1.0" />
+        <direction y="-0.338" z="0.706" x="0.622" />
+        <colourDiffuse b="1.0" r="1.0" g="1.0" />
+        <colourSpecular b="1.0" r="1.0" g="1.0" />
+      </light>
+    </node>
+    <node name="Sun.002" >
+      <position y="3.660133" z="-17.757862" x="-17.602678" />
+      <rotation qz="0.638593" qw="0.364720" qx="0.184493" qy="-0.652029" />
+      <scale y="1.000000" z="1.000000" x="1.000000" />
+      <game >
+        <sensors />
+        <actuators />
+      </game>
+      <light powerScale="1.0" type="directional" name="Sun.002" >
+        <position y="3.660133" z="-17.757862" x="-17.602678" />
+        <lightAttenuation linear="0.04" quadratic="0.0" range="5000" constant="1.0" />
+        <direction y="-0.116" z="0.967" x="-0.225" />
+        <colourDiffuse b="1.0" r="1.0" g="1.0" />
+        <colourSpecular b="1.0" r="1.0" g="1.0" />
+      </light>
+    </node>
+    <node name="Sun.001" >
+      <position y="2.808084" z="15.400401" x="-12.585416" />
+      <rotation qz="-0.477165" qw="0.063399" qx="0.474263" qy="-0.737136" />
+      <scale y="1.000000" z="1.000000" x="1.000000" />
+      <game >
+        <sensors />
+        <actuators />
+      </game>
+      <light powerScale="1.0" type="directional" name="Sun.001" >
+        <position y="2.808084" z="15.400401" x="-12.585416" />
+        <lightAttenuation linear="0.04" quadratic="0.0" range="5000" constant="1.0" />
+        <direction y="-0.095" z="-0.643" x="0.76" />
+        <colourDiffuse b="1.0" r="1.0" g="1.0" />
+        <colourSpecular b="1.0" r="1.0" g="1.0" />
+      </light>
+    </node>
+    <node name="Sun" >
+      <position y="-13.455956" z="-0.000000" x="0.000000" />
+      <rotation qz="-0.999380" qw="0.006917" qx="0.032596" qy="-0.011396" />
+      <scale y="1.000000" z="1.000000" x="1.000000" />
+      <game >
+        <sensors />
+        <actuators />
+      </game>
+      <light powerScale="1.0" type="directional" name="Sun" >
+        <position y="-13.455956" z="-0.000000" x="0.000000" />
+        <lightAttenuation linear="0.04" quadratic="0.0" range="5000" constant="1.0" />
+        <direction y="1.0" z="-0.022" x="0.015" />
+        <colourDiffuse b="1.0" r="1.0" g="1.0" />
+        <colourSpecular b="1.0" r="1.0" g="1.0" />
+      </light>
+    </node>
+    <node name="PjSkeleton" >
+      <position y="0.000000" z="-0.000000" x="0.000000" />
+      <rotation qz="-0.000000" qw="1.000000" qx="0.000000" qy="0.000000" />
+      <scale y="1.000000" z="1.000000" x="1.000000" />
+      <game >
+        <sensors />
+        <actuators />
+      </game>
+      <node name="PjMesh" >
+        <position y="0.000000" z="-0.000000" x="0.000000" />
+        <rotation qz="-0.000000" qw="1.000000" qx="0.000000" qy="0.000000" />
+        <scale y="1.000000" z="1.000000" x="1.000000" />
+        <game >
+          <sensors />
+          <actuators />
+        </game>
+        <entity physics_type="STATIC" damping_trans="0.03999999910593033" lock_trans_x="False" inertia_tensor="0.4000000059604645" friction_x="1.0" damping_rot="0.10000000149011612" friction_y="1.0" velocity_min="0.0" mass_radius="1.0" mass="1.0" actor="False" anisotropic_friction="False" lock_rot_x="False" name="PJMesh" velocity_max="0.0" lock_rot_z="False" ghost="False" meshFile="PJMesh.mesh" lock_rot_y="False" lock_trans_y="False" friction_z="1.0" lock_trans_z="False" />
+      </node>
+    </node>
+  </nodes>
+  <externals >
+    <item type="material" >
+      <file name="/home/aenai/Escritorio/CEDV/Modelos/Pruebas/PJ/Pj/young_caucasian_female.material" />
+    </item>
+    <item type="material" >
+      <file name="/home/aenai/Escritorio/CEDV/Modelos/Pruebas/PJ/Pj/TShirtWhite.material" />
+    </item>
+    <item type="material" >
+      <file name="/home/aenai/Escritorio/CEDV/Modelos/Pruebas/PJ/Pj/shoes02.material" />
+    </item>
+    <item type="material" >
+      <file name="/home/aenai/Escritorio/CEDV/Modelos/Pruebas/PJ/Pj/short01Material.material" />
+    </item>
+    <item type="material" >
+      <file name="/home/aenai/Escritorio/CEDV/Modelos/Pruebas/PJ/Pj/eyebrow007.material" />
+    </item>
+    <item type="material" >
+      <file name="/home/aenai/Escritorio/CEDV/Modelos/Pruebas/PJ/Pj/Eye_brown.material" />
+    </item>
+    <item type="material" >
+      <file name="/home/aenai/Escritorio/CEDV/Modelos/Pruebas/PJ/Pj/female01Material.material" />
+    </item>
+  </externals>
+  <environment >
+    <colourAmbient b="0.0" r="0.0" g="0.0" />
+    <colourBackground b="0.05087608844041824" r="0.05087608844041824" g="0.05087608844041824" />
+    <colourDiffuse b="0.05087608844041824" r="0.05087608844041824" g="0.05087608844041824" />
+  </environment>
+</scene>

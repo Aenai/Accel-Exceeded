@@ -131,23 +131,13 @@ PlayState::enter ()
   _sceneMgr->setShadowTextureSize(512);
   
    light = _sceneMgr->createLight("Light1");
-  light->setPosition(-11,16,71);
+  light->setPosition(-100,40,0);
   light->setType(Ogre::Light::LT_SPOTLIGHT); 
-  light->setDirection(Ogre::Vector3(1,-1,0));
+//  light->setDirection(Ogre::Vector3(1,-1,0));
   light->setSpotlightInnerAngle(Ogre::Degree(25.0f));
   light->setSpotlightOuterAngle(Ogre::Degree(60.0f));
   light->setSpotlightFalloff(5.0f);
   light->setCastShadows(true);
-
-  Ogre::Light* light2 = _sceneMgr->createLight("Light2");
-  light2->setPosition(3,12,3);
-  light2->setDiffuseColour(0.2,0.2,0.2);
-  light2->setType(Ogre::Light::LT_SPOTLIGHT);
-  light2->setDirection(Ogre::Vector3(-0.3,-1,0));
-  light2->setSpotlightInnerAngle(Ogre::Degree(25.0f));
-  light2->setSpotlightOuterAngle(Ogre::Degree(60.0f));
-  light2->setSpotlightFalloff(10.0f);
-  light2->setCastShadows(true);
 
   _changes = 0;
   _jumps = 0;
@@ -213,15 +203,15 @@ PlayState::enter ()
 
   delete trimeshConverter;*/
   // Creacion de la entidad y del SceneNode ------------------------
-  Plane plane1(Vector3(0,1,0), -50);    // Normal y distancia
-  MeshManager::getSingleton().createPlane("plane1",
-	ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME, plane1,
-	200, 200, 1, 1, true, 1, 20, 20, Vector3::UNIT_Z);
-  SceneNode* node = _sceneMgr->createSceneNode("ground");
-  Entity* groundEnt = _sceneMgr->createEntity("planeEnt", "plane1");
-  groundEnt->setMaterialName("Ground");
-  node->attachObject(groundEnt);
-  _sceneMgr->getRootSceneNode()->addChild(node);
+//  Plane plane1(Vector3(0,1,0), -50);    // Normal y distancia
+//  MeshManager::getSingleton().createPlane("plane1",
+//	ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME, plane1,
+//	200, 200, 1, 1, true, 1, 20, 20, Vector3::UNIT_Z);
+//  SceneNode* node = _sceneMgr->createSceneNode("ground");
+//  Entity* groundEnt = _sceneMgr->createEntity("planeEnt", "plane1");
+//  groundEnt->setMaterialName("Ground");
+//  node->attachObject(groundEnt);
+//  _sceneMgr->getRootSceneNode()->addChild(node);
 
   // Creamos forma de colision para el plano ----------------------- 
   OgreBulletCollisions::CollisionShape *Shape;
@@ -234,23 +224,23 @@ PlayState::enter ()
   rigidBodyPlane->setStaticShape(Shape, 0.1, 0.8); 
   
 	//Player Initialization
-	Ogre::Entity* ent1 = _sceneMgr->createEntity("Robotillo", "RobotilloMesh.mesh");
+	Ogre::Entity* ent1 = _sceneMgr->createEntity("Robotillo", "PJMesh.mesh");
 	ent1->setQueryFlags(PLAYER);
   	std::shared_ptr<SceneNode> player(_sceneMgr->createSceneNode("Player"));
 	_player = player;
 	_player->attachObject(ent1);
 	_sceneMgr->getRootSceneNode()->addChild(_player.get());
-	_player->setScale(1,1,1);
-  _player->setVisible(false);
+	_player->setScale(0.05,0.05,0.05);
+//  _player->setVisible(false);
 
   //DEBUG ONLY Coordinator Situate
-	Ogre::Entity* ent2 = _sceneMgr->createEntity("DEBUG SEE", "RobotilloMesh.mesh");
+	Ogre::Entity* ent2 = _sceneMgr->createEntity("DEBUG SEE", "PJMesh.mesh");
   	std::shared_ptr<SceneNode> visor(_sceneMgr->createSceneNode("DEBUG"));
 	_coordVisor = visor;
 	_coordVisor->attachObject(ent2);
 	_sceneMgr->getRootSceneNode()->addChild(_coordVisor.get());
-	_coordVisor->setScale(1,1,1);
-	_coordVisor->setPosition(-100,40,0);
+	_coordVisor->setScale(0.05,0.05,0.05);
+	_coordVisor->setPosition(-100,2200,0);
   //NOT DEBUG
 
   OgreBulletCollisions::BoxCollisionShape *boxShape = new 

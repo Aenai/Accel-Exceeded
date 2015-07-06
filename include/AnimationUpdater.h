@@ -36,10 +36,8 @@ class AnimationUpdater{
   AnimationBlender *_animBlender;
   //Player events
   bool _forward;
-  bool _back;
-  bool _transform;
-  bool _ball;
-  bool _input;
+  bool _jump;
+
 
  public:
   
@@ -50,10 +48,7 @@ class AnimationUpdater{
     //_animBlender->AnimationBlender(sceneMgr->getEntity("Robotillo"));
     _animBlender = new AnimationBlender(sceneMgr->getEntity("Robotillo"));
     _forward=false;
-    _back=false; 
-    _transform=false;
-    _ball=false;
-    _input=true;
+    _jump=false; 
   };
   
   void keyPressed (const OIS::KeyEvent &e);
