@@ -95,7 +95,6 @@ void scaleMesh(const Ogre::Entity *_ent, const Ogre::Vector3 &_scale)
 void
 PlayState::enter ()
 {
-  std::cout << "antes" << std::endl;
 	initSDL (); 
 	_root = Ogre::Root::getSingletonPtr();
 	
@@ -154,7 +153,6 @@ PlayState::enter ()
   _jumps = 0;
 
 	_exitGame = false;
-  std::cout << "antes" << std::endl;
   _recordMgr = new RecordManager();
   std::cout << "despues" << std::endl;
 
@@ -173,7 +171,6 @@ PlayState::enter ()
 
   // Creacion del track --------------------------------------------------
   Entity *entity = _sceneMgr->createEntity("Nivel.mesh");
-  entity->setCastShadows(true);
   SceneNode *trackNode = _sceneMgr->createSceneNode("track");
   scaleMesh(entity,Vector3(6,6,6));
   trackNode->attachObject(entity);
@@ -356,7 +353,7 @@ PlayState::frameStarted
 
   }
   //Win Logic
-  if(4 > _player->getPosition().distance(Vector3(-95,-28,31))){
+  if(4 > _player->getPosition().distance(Vector3(-25.5,93,0))){
     _win = true;
     std::cout << "Win Condition!" << std::endl;
     //Overlay *overlay = _overlayManager->getByName("Victory");
@@ -379,7 +376,7 @@ PlayState::frameStarted
   //Movement Logic
   btVector3 playerVelocity = rigidBoxPlayer->getBulletRigidBody()->getLinearVelocity();
 
-  double speed = 0.3;
+  double speed = 0.6;
   Quaternion prueba = _camera->getOrientation();
   Vector3 cameraDirection = _camera->getDirection();
   cameraDirection.y = 0;
@@ -436,7 +433,6 @@ PlayState::frameStarted
   if(Raycast_world(playerPosition, goingTo, true) && _ySpeed <=0){
     _ySpeed=0;
     _jumps = 0;
-    std::cout << "reset" << std::endl;
   }else if(!_reverse){
     _ySpeed = _ySpeed - 25*evt.timeSinceLastFrame;
     _player->translate(0,_ySpeed*evt.timeSinceLastFrame,0);
@@ -550,8 +546,10 @@ PlayState::keyPressed
   if (e.key == OIS::KC_NUMPAD8) {
     _coordVisor->translate(Vector3(0,0,-1));
   }
-  if (e.key == OIS::KC_NUMPAD0) {
-    Vector3 position = _coordVisor->getPosition();
+  if (e.key == OIS::KC_C) {
+    //Vector3 position = _coordVisor->getPosition();
+    Vector3 position = _player->getPosition();
+
     std::cout << 
       "X: " << position.x << std::endl << 
       "Y: " << position.y << std::endl << 
