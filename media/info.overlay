@@ -2,88 +2,32 @@ Info
 {
     zorder 500
 
-    container Panel(logoPhysi) 
+    container Panel (Fondo) 
     {
 	metrics_mode pixels
-        left -480
-        top 60
-        width 450
-        height 120
+        left -1600
+        top 0
+        width 1800
+        height 900
         vert_align top
         horz_align right
-        material PhyLogo
-    }	  
- 
-}
+        material Fondo
+    }
 
-Victory
-{
-    zorder 500
+    zorder 480
 
-    container Panel(logoVictory) 
+    container Panel (Title) 
     {
 	metrics_mode pixels
-        left -600
-        top 80
-        width 450
-        height 120
+        left -1050
+        top 48
+        width 500
+        height 230
         vert_align top
         horz_align right
-        material VictoryLogo
-    }	  
- 
-}
+        material Logo 
+    }
 
-template element TextArea(MyTemplates/Text)
-{
-    font_name Blue
-		metrics_mode pixels
-		char_height 15
-		colour 1.0 1.0 1.0    
-}
-
-template element TextArea(MyTemplates/SmallText)
-{
-    font_name Blue
-		metrics_mode pixels
-		char_height 12
-		colour 1.0 1.0 1.0    
-}
-
-Info2
-{
-    zorder 500
-
-    container Panel(panelInfo) 
-    {
- 		    metrics_mode pixels
-        left 10
-        top -85
-        width 250
-        height 75
-        vert_align bottom
-        material panelInfoM
-
-		    element TextArea(segundos) : MyTemplates/Text 
-		    {
-				  top 30
-				  left 68 
-		    }
-
-		    element TextArea(puntuacion) : MyTemplates/Text 
-		    {
-				  top 48
-				  left 80
-		    }
-		    
-		    element TextArea(minas) : MyTemplates/Text 
-		    {
-				  top 38
-				  left 220
-		    }
-	  }
-	   
-
-	  
 
 }
+

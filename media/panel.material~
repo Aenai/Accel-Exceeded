@@ -1,4 +1,4 @@
-material PhyLogo 
+material Logo 
 {
  technique 
  {
@@ -7,7 +7,67 @@ material PhyLogo
      scene_blend src_alpha one_minus_src_alpha
      texture_unit  
      {
-       texture Logo_Physicorum.tga
+       texture AELogo.tga
+     }
+   }
+ }
+}
+
+material Fondo 
+{
+ technique 
+ {
+   pass 
+   {
+     scene_blend src_alpha one_minus_src_alpha
+     texture_unit 
+     {
+       texture FondoMain.tga
+     }
+   }
+ }
+}
+
+material Fondotext 
+{
+ technique 
+ {
+   pass 
+   {
+     scene_blend src_alpha one_minus_src_alpha
+     texture_unit 
+     {
+       texture FondoGUI.tga
+     }
+   }
+ }
+}
+
+material VictoryLogo
+{
+ technique 
+ {
+   pass 
+   {
+     scene_blend src_alpha one_minus_src_alpha
+     texture_unit  
+     {
+       texture Finish.tga
+     }
+   }
+ }
+}
+
+material panelInfoM 
+{
+ technique 
+ {
+   pass 
+   {
+     scene_blend src_alpha one_minus_src_alpha
+     texture_unit 
+     {
+       texture Gui.tga
      }
    }
  }

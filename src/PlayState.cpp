@@ -99,13 +99,13 @@ PlayState::enter ()
 	_root = Ogre::Root::getSingletonPtr();
 	
 	//Overlay
-	_overlayManager = OverlayManager::getSingletonPtr();
-	Overlay *overlay = _overlayManager->getByName("Info2");
-	overlay->show();
+	//_overlayManager = OverlayManager::getSingletonPtr();
+	//Overlay *overlay = _overlayManager->getByName("Info2");
+	//overlay->show();
 
 	// Se recupera el gestor de escena y la cámara.
 	_sceneMgr = _root->getSceneManager("SceneManager");
-	_sceneMgr -> setAmbientLight(Ogre::ColourValue(0.6, 0.6, 0.6));
+	_sceneMgr -> setAmbientLight(Ogre::ColourValue(2, 2, 2));
   	_sceneMgr -> setShadowTechnique(Ogre::SHADOWTYPE_STENCIL_ADDITIVE);
 	_camera = _sceneMgr->getCamera("IntroCamera");
 	_viewport = _root->getAutoCreatedWindow()->addViewport(_camera);
@@ -124,8 +124,8 @@ PlayState::enter ()
   
   //Ground and Lights initialization
   _sceneMgr->setShadowTechnique(Ogre::SHADOWTYPE_STENCIL_ADDITIVE);	
-  _sceneMgr->setShadowColour(Ogre::ColourValue(0.5, 0.5, 0.5) );
-  _sceneMgr->setAmbientLight(Ogre::ColourValue(0.9, 0.9, 0.9));
+  _sceneMgr->setShadowColour(Ogre::ColourValue(1, 1, 1) );
+  _sceneMgr->setAmbientLight(Ogre::ColourValue(5, 5, 5));
 
   _sceneMgr->setShadowTextureCount(2);
   _sceneMgr->setShadowTextureSize(512);
@@ -170,7 +170,7 @@ PlayState::enter ()
   // Creacion del track --------------------------------------------------
   Entity *entity = _sceneMgr->createEntity("Nivel.mesh");
   SceneNode *trackNode = _sceneMgr->createSceneNode("track");
-  scaleMesh(entity,Vector3(3,3,3));
+  scaleMesh(entity,Vector3(6,6,6));
   trackNode->attachObject(entity);
 
 
@@ -189,15 +189,15 @@ PlayState::enter ()
   delete trimeshConverter;
 
   // Creacion del rebotador--------------------------------------------------
-  entity = _sceneMgr->createEntity("RebotadorMesh.mesh");
-  SceneNode* rebotadorNode = _sceneMgr->createSceneNode("rebotador1");
+//  entity = _sceneMgr->createEntity("RebotadorMesh.mesh");
+//  SceneNode* rebotadorNode = _sceneMgr->createSceneNode("rebotador1");
   //scaleMesh(entity,Vector3(2,2,2));
-  rebotadorNode->attachObject(entity);
+//  rebotadorNode->attachObject(entity);
 
 
-  _sceneMgr->getRootSceneNode()->addChild(rebotadorNode);
-  rebotadorNode->setPosition(Vector3(-47,-33,71));
-  rebotadorNode->setScale(Vector3(2,2,2));
+//  _sceneMgr->getRootSceneNode()->addChild(rebotadorNode);
+//  rebotadorNode->setPosition(Vector3(-47,-33,71));
+//  rebotadorNode->setScale(Vector3(2,2,2));
 /*  trimeshConverter = new 
     OgreBulletCollisions::StaticMeshToShapeConverter(entity);
 
@@ -248,7 +248,7 @@ PlayState::enter ()
 	_coordVisor->attachObject(ent2);
 	_sceneMgr->getRootSceneNode()->addChild(_coordVisor.get());
 	_coordVisor->setScale(1,1,1);
-	_coordVisor->setPosition(0,-40,0);
+	_coordVisor->setPosition(-100,40,0);
   //NOT DEBUG
 
   OgreBulletCollisions::BoxCollisionShape *boxShape = new 
@@ -353,8 +353,8 @@ PlayState::frameStarted
   if(4 > _player->getPosition().distance(Vector3(-95,-28,31))){
     _win = true;
     std::cout << "Win Condition!" << std::endl;
-    Overlay *overlay = _overlayManager->getByName("Victory");
-    overlay->show();
+    //Overlay *overlay = _overlayManager->getByName("Victory");
+    //overlay->show();
   }
   //Bouncer Logic
   if(5 > _player->getPosition().distance(Vector3(-47,-32,71))){

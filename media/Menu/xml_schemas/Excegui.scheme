@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<GUIScheme Name="Excegui">
+	<Imageset Name="Excegui" Filename="Excegui.imageset" />
+	<LookNFeel Filename="Excegui.looknfeel" />
+	<WindowRendererSet Filename="CEGUIFalagardWRBase" />
+	<FalagardMapping WindowType="Excegui/Button"      TargetType="CEGUI/PushButton"  Renderer="Falagard/Button"       LookNFeel="Excegui/Button" />
+	<FalagardMapping WindowType="Excegui/Checkbox"    TargetType="CEGUI/Checkbox"    Renderer="Falagard/ToggleButton" LookNFeel="Excegui/Checkbox" />
+	<FalagardMapping WindowType="Excegui/ImageButton" TargetType="CEGUI/PushButton"  Renderer="Falagard/Button"       LookNFeel="Excegui/ImageButton" />
+	<FalagardMapping WindowType="Excegui/RadioButton" TargetType="CEGUI/RadioButton" Renderer="Falagard/ToggleButton" LookNFeel="Excegui/RadioButton" />
+	<FalagardMapping WindowType="Excegui/FrameWindow"  TargetType="CEGUI/FrameWindow" Renderer="Falagard/FrameWindow"  LookNFeel="Excegui/FrameWindow" />
+	<FalagardMapping WindowType="Excegui/Titlebar"     TargetType="CEGUI/Titlebar"    Renderer="Falagard/Titlebar"     LookNFeel="Excegui/Titlebar" />
+	<FalagardMapping WindowType="Excegui/SystemButton" TargetType="CEGUI/PushButton"  Renderer="Falagard/SystemButton" LookNFeel="Excegui/Button" />
+	<FalagardMapping WindowType="Excegui/Editbox"          TargetType="CEGUI/Editbox"          Renderer="Falagard/Editbox"          LookNFeel="Excegui/Editbox" />
+	<FalagardMapping WindowType="Excegui/MultiLineEditbox" TargetType="CEGUI/MultiLineEditbox" Renderer="Falagard/MultiLineEditbox" LookNFeel="Excegui/MultiLineEditbox" />
+	<FalagardMapping WindowType="Excegui/Menubar"   TargetType="CEGUI/Menubar"   Renderer="Falagard/Menubar"   LookNFeel="Excegui/Menubar" />
+	<FalagardMapping WindowType="Excegui/PopupMenu" TargetType="CEGUI/PopupMenu" Renderer="Falagard/PopupMenu" LookNFeel="Excegui/PopupMenu" />
+	<FalagardMapping WindowType="Excegui/MenuItem"  TargetType="CEGUI/MenuItem"  Renderer="Falagard/MenuItem"  LookNFeel="Excegui/MenuItem" />
+	<FalagardMapping WindowType="Excegui/AlternateProgressBar" TargetType="CEGUI/ProgressBar" Renderer="Falagard/ProgressBar" LookNFeel="Excegui/AltProgressBar" />
+	<FalagardMapping WindowType="Excegui/ProgressBar"          TargetType="CEGUI/ProgressBar" Renderer="Falagard/ProgressBar" LookNFeel="Excegui/ProgressBar" />
+	<FalagardMapping WindowType="Excegui/VUMeter"              TargetType="CEGUI/ProgressBar" Renderer="Falagard/ProgressBar" LookNFeel="Excegui/VUMeter" />
+	<FalagardMapping WindowType="Excegui/VerticalScrollbar"   TargetType="CEGUI/Scrollbar" Renderer="Falagard/Scrollbar" LookNFeel="Excegui/VerticalScrollbar" />
+	<FalagardMapping WindowType="Excegui/HorizontalScrollbar" TargetType="CEGUI/Scrollbar" Renderer="Falagard/Scrollbar" LookNFeel="Excegui/HorizontalScrollbar" />
+	<FalagardMapping WindowType="Excegui/VerticalScrollbarThumb"   TargetType="CEGUI/Thumb" Renderer="Falagard/Button" LookNFeel="Excegui/VerticalScrollbarThumb" />
+	<FalagardMapping WindowType="Excegui/HorizontalScrollbarThumb" TargetType="CEGUI/Thumb" Renderer="Falagard/Button" LookNFeel="Excegui/HorizontalScrollbarThumb" />
+	<FalagardMapping WindowType="Excegui/LargeVerticalScrollbar"      TargetType="CEGUI/Scrollbar" Renderer="Falagard/Scrollbar" LookNFeel="Excegui/LargeVerticalScrollbar" />
+	<FalagardMapping WindowType="Excegui/LargeVerticalScrollbarThumb" TargetType="CEGUI/Thumb"     Renderer="Falagard/Button"    LookNFeel="Excegui/LargeVerticalScrollbarThumb" />
+	<FalagardMapping WindowType="Excegui/TabButton"  TargetType="CEGUI/TabButton"  Renderer="Falagard/TabButton"  LookNFeel="Excegui/TabButton" />
+	<FalagardMapping WindowType="Excegui/TabControl" TargetType="CEGUI/TabControl" Renderer="Falagard/TabControl" LookNFeel="Excegui/TabControl" />
+	<FalagardMapping WindowType="Excegui/TabContentPane"    TargetType="DefaultWindow"    Renderer="Falagard/Default"    LookNFeel="Excegui/TabContentPane" />
+	<FalagardMapping WindowType="Excegui/TabButtonPane"    TargetType="DefaultWindow"    Renderer="Falagard/Default"    LookNFeel="Excegui/TabButtonPane" />
+	<FalagardMapping WindowType="Excegui/ComboDropList" TargetType="CEGUI/ComboDropList" Renderer="Falagard/Listbox" LookNFeel="Excegui/ComboDropList" />
+	<FalagardMapping WindowType="Excegui/ComboEditbox"  TargetType="CEGUI/Editbox"	 Renderer="Falagard/Editbox" LookNFeel="Excegui/ComboEditbox" />
+	<FalagardMapping WindowType="Excegui/Combobox"	TargetType="CEGUI/Combobox"	 Renderer="Falagard/Default" LookNFeel="Excegui/Combobox" />
+	<FalagardMapping WindowType="Excegui/Listbox"           TargetType="CEGUI/Listbox"           Renderer="Falagard/Listbox"           LookNFeel="Excegui/Listbox" />
+	<FalagardMapping WindowType="Excegui/ListHeader"        TargetType="CEGUI/ListHeader"        Renderer="Falagard/ListHeader"        LookNFeel="Excegui/ListHeader" />
+	<FalagardMapping WindowType="Excegui/ListHeaderSegment" TargetType="CEGUI/ListHeaderSegment" Renderer="Falagard/ListHeaderSegment" LookNFeel="Excegui/ListHeaderSegment" />
+	<FalagardMapping WindowType="Excegui/MultiColumnList"   TargetType="CEGUI/MultiColumnList"   Renderer="Falagard/MultiColumnList"   LookNFeel="Excegui/MultiColumnList" />
+	<FalagardMapping WindowType="Excegui/Slider"      TargetType="CEGUI/Slider"      Renderer="Falagard/Slider"  LookNFeel="Excegui/Slider" />
+	<FalagardMapping WindowType="Excegui/SliderThumb" TargetType="CEGUI/Thumb" Renderer="Falagard/Button"  LookNFeel="Excegui/SliderThumb" />
+	<FalagardMapping WindowType="Excegui/ScrollablePane" TargetType="CEGUI/ScrollablePane" Renderer="Falagard/ScrollablePane" LookNFeel="Excegui/ScrollablePane" />
+	<FalagardMapping WindowType="Excegui/Spinner" TargetType="CEGUI/Spinner" Renderer="Falagard/Default" LookNFeel="Excegui/Spinner" />
+	<FalagardMapping WindowType="Excegui/Tooltip" TargetType="CEGUI/Tooltip" Renderer="Falagard/Tooltip" LookNFeel="Excegui/Tooltip" />
+	<FalagardMapping WindowType="Excegui/StaticImage" TargetType="DefaultWindow" Renderer="Falagard/StaticImage" LookNFeel="Excegui/StaticImage" />
+	<FalagardMapping WindowType="Excegui/StaticText"  TargetType="DefaultWindow" Renderer="Falagard/StaticText"  LookNFeel="Excegui/StaticText" />
+    <FalagardMapping WindowType="Excegui/ItemListbox" TargetType="CEGUI/ItemListbox" Renderer="Falagard/ItemListbox" LookNFeel="Excegui/ItemListbox" />
+    <FalagardMapping WindowType="Excegui/ListboxItem" TargetType="CEGUI/ItemEntry"   Renderer="Falagard/ItemEntry"   LookNFeel="Excegui/ListboxItem" />
+</GUIScheme>
