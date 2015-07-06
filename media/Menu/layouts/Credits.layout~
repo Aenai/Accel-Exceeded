@@ -15,7 +15,7 @@
       <Property Name="UnifiedAreaRect" Value="{{0.11,0},{0.63,0},{0.31,0},{0.69,0}}"/>
     </Window>
     <!-- Back Button -->
-    <Window Type="Excegui/Button" Name="FormatWin/ExitButton">
+    <Window Type="Excegui/Button" Name="FormatWin/BackButton">
       <Property Name="Text" Value="Atras" />
       <Property Name="UnifiedAreaRect" Value="{{0.11,0},{0.73,0},{0.31,0},{0.79,0}}"/>
     </Window>

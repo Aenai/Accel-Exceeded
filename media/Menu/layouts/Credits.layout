@@ -6,13 +6,13 @@
     <Property Name="UnifiedAreaRect" Value="{{0,0},{0,0},{1,0},{1,0}}"/>
     <!-- Text Credit -->
     <Window Type="Excegui/StaticText" Name="FormatWin/Text1">
-      <Property Name="UnifiedAreaRect" Value="{{0.11,0},{0.43,0},{0.31,0},{0.49,0}}"/>
+      <Property Name="UnifiedAreaRect" Value="{{0.11,0},{0.43,0},{0.50,0},{0.49,0}}"/>
     </Window>
     <Window Type="Excegui/StaticText" Name="FormatWin/Text2">
-      <Property Name="UnifiedAreaRect" Value="{{0.11,0},{0.53,0},{0.31,0},{0.59,0}}"/>
+      <Property Name="UnifiedAreaRect" Value="{{0.11,0},{0.53,0},{0.50,0},{0.59,0}}"/>
     </Window>
     <Window Type="Excegui/StaticText" Name="FormatWin/Text3">
-      <Property Name="UnifiedAreaRect" Value="{{0.11,0},{0.63,0},{0.31,0},{0.69,0}}"/>
+      <Property Name="UnifiedAreaRect" Value="{{0.11,0},{0.63,0},{0.50,0},{0.69,0}}"/>
     </Window>
     <!-- Back Button -->
     <Window Type="Excegui/Button" Name="FormatWin/BackButton">

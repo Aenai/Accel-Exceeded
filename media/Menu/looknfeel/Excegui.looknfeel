@@ -2213,7 +2213,7 @@
     -->
     <WidgetLook name="Excegui/StaticText">
 		<PropertyDefinition name="FrameColours" initialValue="tl:FF000000 tr:FF000000 bl:FF000000 br:FF000000" redrawOnWrite="true" />
-		<PropertyDefinition name="BackgroundColours" initialValue="tl:FF777777 tr:FF777777 bl:FF777777 br:FF777777" redrawOnWrite="true" />
+		<PropertyDefinition name="BackgroundColours" initialValue="tl:FF000000 tr:FF000000 bl:FF000000 br:FF000000" redrawOnWrite="true" />
         <Property name="FrameEnabled" value="True" />
         <Property name="BackgroundEnabled" value="True" />
         <NamedArea name="WithFrameTextRenderArea">

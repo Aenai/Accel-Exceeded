@@ -346,8 +346,8 @@ PlayState::frameStarted
   if(4 > _player->getPosition().distance(Vector3(-25.5,93,0))){
     _win = true;
     std::cout << "Win Condition!" << std::endl;
-    //Overlay *overlay = _overlayManager->getByName("Victory");
-    //overlay->show();
+    Overlay *overlay = _overlayManager->getByName("Victory");
+    overlay->show();
   }
   //Bouncer Logic
   if(5 > _player->getPosition().distance(Vector3(-47,-32,71))){
