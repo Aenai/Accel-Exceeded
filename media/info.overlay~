@@ -2,16 +2,32 @@ Info
 {
     zorder 500
 
-    container Panel(logoPhysi) 
+    container Panel (Fondo) 
     {
 	metrics_mode pixels
-        left -480
-        top 60
-        width 450
-        height 120
+        left -1600
+        top 0
+        width 1800
+        height 900
         vert_align top
         horz_align right
-        material PhyLogo
-    }	  
- 
+        material Fondo
+    }
+
+    zorder 480
+
+    container Panel (Title) 
+    {
+	metrics_mode pixels
+        left -1550
+        top 48
+        width 500
+        height 230
+        vert_align top
+        horz_align right
+        material Logo 
+    }
+
+
 }
+

@@ -19,8 +19,8 @@ Info
     container Panel (Title) 
     {
 	metrics_mode pixels
-        left -1050
-        top 48
+        left -1550
+        top 50
         width 500
         height 230
         vert_align top

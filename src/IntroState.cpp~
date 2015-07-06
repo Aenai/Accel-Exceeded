@@ -193,3 +193,31 @@ bool IntroState::initGame(const CEGUI::EventArgs &e){
 
 	return true;
 }
+
+bool IntroState::controls(const CEGUI::EventArgs &e){
+	_initGameControl=false;
+	CEGUI::WindowManager::getSingletonPtr()->destroyWindow("MenuWin");
+	controlMenu();
+	return true;
+}
+
+bool IntroState::credits(const CEGUI::EventArgs &e){
+	_initGameControl=false;
+	CEGUI::WindowManager::getSingletonPtr()->destroyWindow("MenuWin");
+	creditMenu();
+	return true;
+}
+
+bool IntroState::back(const CEGUI::EventArgs &e){
+	CEGUI::WindowManager::getSingletonPtr()->destroyAllWindows();
+	_initGameControl=true;
+	initMenu();
+
+	return true;
+}
+
+bool IntroState::quit(const CEGUI::EventArgs &e){
+	CEGUI::WindowManager::getSingletonPtr()->destroyAllWindows();
+	_exitGame = true;
+	return true;
+}
