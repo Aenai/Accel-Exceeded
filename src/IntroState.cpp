@@ -73,8 +73,10 @@ IntroState::keyPressed
   // Transición al siguiente estado.
   // Espacio --> PlayState
   if (e.key == OIS::KC_SPACE) {
-//    CEGUI::MouseCursor::getSingleton().hide( );
-//    CEGUI::WindowManager::getSingletonPtr()->destroyAllWindows();	
+    CEGUI::MouseCursor::getSingleton().hide( );
+    CEGUI::WindowManager::getSingletonPtr()->destroyAllWindows();
+    Ogre::Overlay *overlay = _overlayManager->getByName("Info");
+    overlay->hide();	
     changeState(PlayState::getSingletonPtr());
   }
 }
@@ -171,15 +173,52 @@ void IntroState::initMenu(){
 
 	//Controls Window
 	CEGUI::Window* controlButton = CEGUI::WindowManager::getSingleton().getWindow("FormatWin/LoadButton");
-	//controlButton->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&IntroState::controls, this));
+	controlButton->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&IntroState::controls, this));
 
 	//Designers Window
 	CEGUI::Window* designersButton = CEGUI::WindowManager::getSingleton().getWindow("FormatWin/OptionButton");
-	//designersButton->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&IntroState::credits, this));
+	designersButton->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&IntroState::credits, this));
 
 	//Exit Window
 	CEGUI::Window* exitButton = CEGUI::WindowManager::getSingleton().getWindow("FormatWin/ExitButton");
-	//exitButton->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&IntroState::quit, this));
+	exitButton->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&IntroState::quit, this));
+	
+	//Attaching buttons
+	sheet->addChildWindow(formatWin);
+	CEGUI::System::getSingleton().setGUISheet(sheet);
+}
+
+void IntroState::controlMenu(){
+	//Sheet
+	CEGUI::Window* sheet = CEGUI::WindowManager::getSingleton().createWindow("DefaultWindow","CommandWin");
+
+	//Config Window
+	CEGUI::Window* formatWin = CEGUI::WindowManager::getSingleton().loadWindowLayout("Records.layout");
+
+	//Back Window
+	CEGUI::Window* backButton = CEGUI::WindowManager::getSingleton().getWindow("FormatWin/BackButton");
+	backButton->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&IntroState::back, this));
+	
+	//Attaching buttons
+	sheet->addChildWindow(formatWin);
+	CEGUI::System::getSingleton().setGUISheet(sheet);
+}
+
+void IntroState::creditMenu(){
+	//Sheet
+	CEGUI::Window* sheet = CEGUI::WindowManager::getSingleton().createWindow("DefaultWindow","CreditWin");
+
+	//Config Window
+	CEGUI::Window* formatWin = CEGUI::WindowManager::getSingleton().loadWindowLayout("Credits.layout");
+
+	//Setting Text!
+	CEGUI::WindowManager::getSingleton().getWindow("FormatWin/Text1")->setText("[vert-alignment='centre'] Dise\xA4ado por:");
+	CEGUI::WindowManager::getSingleton().getWindow("FormatWin/Text2")->setText("[vert-alignment='centre']   - Juan Carlos Fernandez Duran");
+	CEGUI::WindowManager::getSingleton().getWindow("FormatWin/Text3")->setText("[vert-alignment='centre']   - Ivan Martinez Heras");
+
+	//Back Window
+	CEGUI::Window* backButton = CEGUI::WindowManager::getSingleton().getWindow("FormatWin/BackButton");
+	backButton->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&IntroState::back, this));
 	
 	//Attaching buttons
 	sheet->addChildWindow(formatWin);
@@ -189,7 +228,37 @@ void IntroState::initMenu(){
 bool IntroState::initGame(const CEGUI::EventArgs &e){
 	CEGUI::MouseCursor::getSingleton().hide( );
 	CEGUI::WindowManager::getSingletonPtr()->destroyAllWindows();
+    	Ogre::Overlay *overlay = _overlayManager->getByName("Info");
+    	overlay->hide();
 	changeState(PlayState::getSingletonPtr());
 
+	return true;
+}
+
+bool IntroState::controls(const CEGUI::EventArgs &e){
+	_initGameControl=false;
+	CEGUI::WindowManager::getSingletonPtr()->destroyWindow("MenuWin");
+	controlMenu();
+	return true;
+}
+
+bool IntroState::credits(const CEGUI::EventArgs &e){
+	_initGameControl=false;
+	CEGUI::WindowManager::getSingletonPtr()->destroyWindow("MenuWin");
+	creditMenu();
+	return true;
+}
+
+bool IntroState::back(const CEGUI::EventArgs &e){
+	CEGUI::WindowManager::getSingletonPtr()->destroyAllWindows();
+	_initGameControl=true;
+	initMenu();
+
+	return true;
+}
+
+bool IntroState::quit(const CEGUI::EventArgs &e){
+	CEGUI::WindowManager::getSingletonPtr()->destroyAllWindows();
+	_exitGame = true;
 	return true;
 }
