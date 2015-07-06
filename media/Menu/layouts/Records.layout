@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout>
+  <Window Type="Excegui/FrameWindow" Name="FormatWin">
+    <Property Name="Text" Value=""/>
+    <Property Name="TitlebarEnabled" Value="false"/>
+    <Property Name="UnifiedAreaRect" Value="{{0,0},{0,0},{1,0},{1,0}}"/>
+    <!-- Back Button -->
+    <Window Type="Excegui/Button" Name="FormatWin/BackButton">
+      <Property Name="Text" Value="Atras" />
+      <Property Name="UnifiedAreaRect" Value="{{0.11,0},{0.73,0},{0.31,0},{0.79,0}}"/>
+    </Window>
+  </Window>
+</GUILayout>

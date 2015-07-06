@@ -99,9 +99,9 @@ PlayState::enter ()
 	_root = Ogre::Root::getSingletonPtr();
 	
 	//Overlay
-	_overlayManager = OverlayManager::getSingletonPtr();
-	Overlay *overlay = _overlayManager->getByName("Info2");
-	overlay->show();
+	//_overlayManager = OverlayManager::getSingletonPtr();
+	//Overlay *overlay = _overlayManager->getByName("Info2");
+	//overlay->show();
 
 	// Se recupera el gestor de escena y la cámara.
 	_sceneMgr = _root->getSceneManager("SceneManager");
@@ -353,8 +353,8 @@ PlayState::frameStarted
   if(4 > _player->getPosition().distance(Vector3(-95,-28,31))){
     _win = true;
     std::cout << "Win Condition!" << std::endl;
-    Overlay *overlay = _overlayManager->getByName("Victory");
-    overlay->show();
+    //Overlay *overlay = _overlayManager->getByName("Victory");
+    //overlay->show();
   }
   //Bouncer Logic
   if(5 > _player->getPosition().distance(Vector3(-47,-32,71))){

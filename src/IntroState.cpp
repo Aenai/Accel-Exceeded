@@ -73,8 +73,10 @@ IntroState::keyPressed
   // Transición al siguiente estado.
   // Espacio --> PlayState
   if (e.key == OIS::KC_SPACE) {
-//    CEGUI::MouseCursor::getSingleton().hide( );
-//    CEGUI::WindowManager::getSingletonPtr()->destroyAllWindows();	
+    CEGUI::MouseCursor::getSingleton().hide( );
+    CEGUI::WindowManager::getSingletonPtr()->destroyAllWindows();
+    Ogre::Overlay *overlay = _overlayManager->getByName("Info");
+    overlay->hide();	
     changeState(PlayState::getSingletonPtr());
   }
 }
@@ -191,16 +193,7 @@ void IntroState::controlMenu(){
 	CEGUI::Window* sheet = CEGUI::WindowManager::getSingleton().createWindow("DefaultWindow","CommandWin");
 
 	//Config Window
-	CEGUI::Window* formatWin = CEGUI::WindowManager::getSingleton().loadWindowLayout("Controls.layout");
-
-	//Setting Text!
-	CEGUI::WindowManager::getSingleton().getWindow("FormatWin/Text1")->setText(" [vert-alignment='centre']Controles");
-	CEGUI::WindowManager::getSingleton().getWindow("FormatWin/Text2")->setText(" [vert-alignment='centre']  P --> Pausar");
-	CEGUI::WindowManager::getSingleton().getWindow("FormatWin/Text3")->setText(" [vert-alignment='centre']  W/A/S/D --> Mover");
-	CEGUI::WindowManager::getSingleton().getWindow("FormatWin/Text4")->setText(" [vert-alignment='centre']  E --> Transformarse");
-	CEGUI::WindowManager::getSingleton().getWindow("FormatWin/Text5")->setText(" [vert-alignment='centre']  Click Izq. --> Autoimp.");
-	CEGUI::WindowManager::getSingleton().getWindow("FormatWin/Text6")->setText(" [vert-alignment='centre']  Q --> Cambiar camara");
-	CEGUI::WindowManager::getSingleton().getWindow("FormatWin/Text7")->setText(" [vert-alignment='centre']  Up/Down --> Zoom");
+	CEGUI::Window* formatWin = CEGUI::WindowManager::getSingleton().loadWindowLayout("Records.layout");
 
 	//Back Window
 	CEGUI::Window* backButton = CEGUI::WindowManager::getSingleton().getWindow("FormatWin/BackButton");
@@ -219,10 +212,9 @@ void IntroState::creditMenu(){
 	CEGUI::Window* formatWin = CEGUI::WindowManager::getSingleton().loadWindowLayout("Credits.layout");
 
 	//Setting Text!
-	CEGUI::WindowManager::getSingleton().getWindow("FormatWin/Text1")->setText("[vert-alignment='centre'] Diseñado por:");
-	CEGUI::WindowManager::getSingleton().getWindow("FormatWin/Text2")->setText("[vert-alignment='centre']   - Juan Carlos");
-	CEGUI::WindowManager::getSingleton().getWindow("FormatWin/Text3")->setText("[vert-alignment='centre']       Fernandez Duran");
-	CEGUI::WindowManager::getSingleton().getWindow("FormatWin/Text4")->setText("[vert-alignment='centre']   - Ivan Martinez Heras");
+	CEGUI::WindowManager::getSingleton().getWindow("FormatWin/Text1")->setText("[vert-alignment='centre'] Dise\xA4ado por:");
+	CEGUI::WindowManager::getSingleton().getWindow("FormatWin/Text2")->setText("[vert-alignment='centre']   - Juan Carlos Fernandez Duran");
+	CEGUI::WindowManager::getSingleton().getWindow("FormatWin/Text3")->setText("[vert-alignment='centre']   - Ivan Martinez Heras");
 
 	//Back Window
 	CEGUI::Window* backButton = CEGUI::WindowManager::getSingleton().getWindow("FormatWin/BackButton");
@@ -236,6 +228,8 @@ void IntroState::creditMenu(){
 bool IntroState::initGame(const CEGUI::EventArgs &e){
 	CEGUI::MouseCursor::getSingleton().hide( );
 	CEGUI::WindowManager::getSingletonPtr()->destroyAllWindows();
+    	Ogre::Overlay *overlay = _overlayManager->getByName("Info");
+    	overlay->hide();
 	changeState(PlayState::getSingletonPtr());
 
 	return true;

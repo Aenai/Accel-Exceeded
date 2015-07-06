@@ -169,6 +169,7 @@ PlayState::enter ()
 
   // Creacion del track --------------------------------------------------
   Entity *entity = _sceneMgr->createEntity("Nivel.mesh");
+  entity->setCastShadows(true);
   SceneNode *trackNode = _sceneMgr->createSceneNode("track");
   scaleMesh(entity,Vector3(6,6,6));
   trackNode->attachObject(entity);

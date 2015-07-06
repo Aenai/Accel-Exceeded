@@ -11,7 +11,7 @@
     </Window>
     <!-- Load Button -->
     <Window Type="Excegui/Button" Name="FormatWin/LoadButton">
-      <Property Name="Text" Value="Controles" />
+      <Property Name="Text" Value="Records" />
       <Property Name="UnifiedAreaRect" Value="{{0.11,0},{0.53,0},{0.31,0},{0.59,0}}"/>
     </Window>
     <!-- Option Button -->

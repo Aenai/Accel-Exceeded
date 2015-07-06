@@ -7,22 +7,22 @@
     <!-- Game Button -->
     <Window Type="Excegui/Button" Name="FormatWin/GameButton">
       <Property Name="Text" Value="Juego nuevo" />
-      <Property Name="UnifiedAreaRect" Value="{{0.13,0},{0.43,0},{0.33,0},{0.49,0}}"/>
+      <Property Name="UnifiedAreaRect" Value="{{0.11,0},{0.43,0},{0.31,0},{0.49,0}}"/>
     </Window>
     <!-- Load Button -->
     <Window Type="Excegui/Button" Name="FormatWin/LoadButton">
       <Property Name="Text" Value="Controles" />
-      <Property Name="UnifiedAreaRect" Value="{{0.13,0},{0.53,0},{0.33,0},{0.59,0}}"/>
+      <Property Name="UnifiedAreaRect" Value="{{0.11,0},{0.53,0},{0.31,0},{0.59,0}}"/>
     </Window>
     <!-- Option Button -->
     <Window Type="Excegui/Button" Name="FormatWin/OptionButton">
       <Property Name="Text" Value="Creditos" />
-      <Property Name="UnifiedAreaRect" Value="{{0.13,0},{0.63,0},{0.33,0},{0.69,0}}"/>
+      <Property Name="UnifiedAreaRect" Value="{{0.11,0},{0.63,0},{0.31,0},{0.69,0}}"/>
     </Window>
     <!-- Exit Button -->
     <Window Type="Excegui/Button" Name="FormatWin/ExitButton">
       <Property Name="Text" Value="Salir" />
-      <Property Name="UnifiedAreaRect" Value="{{0.13,0},{0.73,0},{0.33,0},{0.79,0}}"/>
+      <Property Name="UnifiedAreaRect" Value="{{0.11,0},{0.73,0},{0.31,0},{0.79,0}}"/>
     </Window>
   </Window>
 </GUILayout>
