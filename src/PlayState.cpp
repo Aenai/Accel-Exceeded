@@ -20,7 +20,9 @@ bool PlayState::Raycast_world(const btVector3 &Start, btVector3 &End, bool floor
     double stepDistance = _player->getPosition().y-res.m_hitPointWorld.getY(); 
    // std::cout <<stepDistance << std::endl;
     if(stepDistance > 0&& stepDistance < 2.5 && floorCheck){
-      _ySpeed += 34*_lastTime;
+      //_ySpeed += 34*_lastTime;
+      Vector3 direction(0,1,0);
+      _player->translate(direction);
     }
     return res.hasHit();
 }
@@ -343,11 +345,12 @@ PlayState::frameStarted
 
   }
   //Win Logic
-  if(4 > _player->getPosition().distance(Vector3(-25.5,93,0))){
+  if(4 > _player->getPosition().distance(Vector3(-25.5,93,0)) && !_win){
     _win = true;
     std::cout << "Win Condition!" << std::endl;
-    Overlay *overlay = _overlayManager->getByName("Victory");
-    overlay->show();
+    _recordMgr->keepRecord(_recordTimer.getMilliseconds(),0);
+    //Overlay *overlay = _overlayManager->getByName("Victory");
+    //overlay->show();
   }
   //Bouncer Logic
   if(5 > _player->getPosition().distance(Vector3(-47,-32,71))){
@@ -378,6 +381,7 @@ PlayState::frameStarted
   Vector3 forwardLimit = cameraDirection * 2;
   btVector3 goingTo(ogrePos.x+forwardLimit.x,ogrePos.y,ogrePos.z+forwardLimit.z);
   
+
     if(!Raycast_world(playerPosition, goingTo)){
        _player->translate(cameraDirection*speed);
     }
@@ -418,7 +422,7 @@ PlayState::frameStarted
   // Aero Logic
   Vector3 ogrePos = _player->getPosition();
   const btVector3 playerPosition(ogrePos.x,ogrePos.y,ogrePos.z);
-  btVector3 goingTo(ogrePos.x,ogrePos.y-3,ogrePos.z);
+  btVector3 goingTo(ogrePos.x,ogrePos.y-6,ogrePos.z);
   
   if(Raycast_world(playerPosition, goingTo, true) && _ySpeed <=0){
     _ySpeed=0;
