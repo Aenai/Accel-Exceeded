@@ -19,7 +19,7 @@ bool PlayState::Raycast_world(const btVector3 &Start, btVector3 &End, bool floor
     _world->getBulletDynamicsWorld()->rayTest(Start, End, res); // m_btWorld is btDiscreteDynamicsWorld
     double stepDistance = _player->getPosition().y-res.m_hitPointWorld.getY(); 
    // std::cout <<stepDistance << std::endl;
-    if(stepDistance > 0&& stepDistance < 2.5 && floorCheck){
+    if(stepDistance > 0&& stepDistance < 2.5 && floorCheck  && !_reverse){
       //_ySpeed += 34*_lastTime;
       Vector3 direction(0,1,0);
       _player->translate(direction);

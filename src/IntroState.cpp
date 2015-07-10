@@ -3,6 +3,80 @@
 
 template<> IntroState* Ogre::Singleton<IntroState>::msSingleton = 0;
 
+
+std::vector<std::string> IntroState::getRecords(){
+	
+	std::vector<std::string> records;
+	
+  std::string line;
+  std::ifstream myfile ("records.txt");
+	if (myfile.is_open()){
+		while ( getline (myfile,line) ){
+			records.push_back(line);
+		}
+	myfile.close();
+	}
+	
+	int bestRecord=999999, indexRecord=-1;
+	std::vector<std::string> top;
+	for(int j=0; j<3 && !records.empty(); j++){
+		for(unsigned int i=0; i<records.size(); i++){
+			int boxes= atoi((split(records.at(i),':')[0]).c_str())/1000;
+      //std::cout << boxes << " en la bussqueda" << std::endl;
+			if(boxes<bestRecord && boxes != 999999){
+				bestRecord=boxes;
+				indexRecord=i;
+			}
+				
+		}
+		if(indexRecord != -1){
+			top.push_back(records.at(indexRecord));
+
+/*			OverlayElement *oe;
+			
+			std::ostringstream string;
+			string << "r" << j << "_records";
+			
+			oe = _overlayManager->getOverlayElement(string.str());
+			std::ostringstream r_string;
+			r_string << bestRecord << " cajas por abrir en " << (split(records.at(indexRecord),':')[0]) << " segundos";
+			oe->setCaption(r_string.str());*/
+			
+      if(j==0){
+         firstRecord = bestRecord;
+      }else if(j==1){
+         secondRecord = bestRecord;
+      }else{
+         thirdRecord = bestRecord;
+      }
+      std::cout << bestRecord << " cajas por abrir en " << std::endl; 
+			records[indexRecord] = "999999:999";
+			indexRecord=-1;
+			bestRecord=999999;
+		}
+	}
+
+	
+	return records;
+	
+}
+
+std::vector<std::string> &IntroState::split(const std::string &s, char delim, std::vector<std::string> &elems) {
+    std::stringstream ss(s);
+    std::string item;
+    while (std::getline(ss, item, delim)) {
+        elems.push_back(item);
+    }
+    return elems;
+}
+
+
+std::vector<std::string> IntroState::split(const std::string &s, char delim) {
+    std::vector<std::string> elems;
+    split(s, delim, elems);
+    return elems;
+}
+
 void
 IntroState::enter ()
 {
@@ -21,6 +95,8 @@ IntroState::enter ()
   createGUI();
   initMenu();
 
+  std::cout << "asucar" << std::endl;
+  getRecords();
   _exitGame = false;
 }
 

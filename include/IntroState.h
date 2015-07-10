@@ -62,6 +62,9 @@ class IntroState : public Ogre::Singleton<IntroState>, public GameState
   bool credits(const CEGUI::EventArgs &e);
   bool back(const CEGUI::EventArgs &e);
   bool quit(const CEGUI::EventArgs &e);
+  std::vector<std::string> getRecords();
+  std::vector<std::string> &split(const std::string &s, char delim, std::vector<std::string> &elems);
+  std::vector<std::string> split(const std::string &s, char delim); 
 
   
  protected:
@@ -72,6 +75,9 @@ class IntroState : public Ogre::Singleton<IntroState>, public GameState
   CEGUI::OgreRenderer* renderer;
   Ogre::OverlayManager* _overlayManager;
   Ogre::AnimationState *_animState;
+  int firstRecord;
+  int secondRecord;
+  int thirdRecord;
 
 //  std::shared_ptr<SceneNode> _player;
 
