@@ -229,9 +229,9 @@ void IntroState::createGUI(){
 	CEGUI::SchemeManager::getSingleton().create("Excegui.scheme");
 	CEGUI::ImagesetManager::getSingleton().create("Excegui.imageset");
 	//CEGUI::System::getSingleton().setDefaultFont("tenby-five");
-	if(! CEGUI::FontManager::getSingleton().isDefined( "Abandon-Alphabeta" ) )
-	CEGUI::FontManager::getSingleton().createFreeTypeFont( "Abandon-Alphabeta", 23, true, "Abandon-Alphabeta.ttf", "Fonts" );
-	CEGUI::System::getSingleton().setDefaultFont( "Abandon-Alphabeta" );
+	if(! CEGUI::FontManager::getSingleton().isDefined( "Epyval" ) )
+	CEGUI::FontManager::getSingleton().createFreeTypeFont( "Epyval", 19, true, "Epyval.ttf", "Fonts" );
+	CEGUI::System::getSingleton().setDefaultFont( "Epyval" );
 	CEGUI::System::getSingleton().setDefaultMouseCursor("Excegui","MouseArrow");
 	CEGUI::MouseCursor::getSingleton().show( );
 }
@@ -271,6 +271,12 @@ void IntroState::controlMenu(){
 	//Config Window
 	CEGUI::Window* formatWin = CEGUI::WindowManager::getSingleton().loadWindowLayout("Records.layout");
 
+	//Setting Text!
+	CEGUI::WindowManager::getSingleton().getWindow("FormatWin/Text1")->setText("[vert-alignment='centre'] [colour='FF000000'] Records:");
+	CEGUI::WindowManager::getSingleton().getWindow("FormatWin/Text2")->setText("[vert-alignment='centre'] [colour='FF000000']  - 1: " + StringConverter::toString(firstRecord) );
+	CEGUI::WindowManager::getSingleton().getWindow("FormatWin/Text3")->setText("[vert-alignment='centre'] [colour='FF000000']  - 2: " + StringConverter::toString(secondRecord));
+	CEGUI::WindowManager::getSingleton().getWindow("FormatWin/Text4")->setText("[vert-alignment='centre'] [colour='FF000000']  - 3: " + StringConverter::toString(thirdRecord));
+
 	//Back Window
 	CEGUI::Window* backButton = CEGUI::WindowManager::getSingleton().getWindow("FormatWin/BackButton");
 	backButton->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&IntroState::back, this));
@@ -288,9 +294,9 @@ void IntroState::creditMenu(){
 	CEGUI::Window* formatWin = CEGUI::WindowManager::getSingleton().loadWindowLayout("Credits.layout");
 
 	//Setting Text!
-	CEGUI::WindowManager::getSingleton().getWindow("FormatWin/Text1")->setText("[vert-alignment='centre'] [colour=FFffffff] Disenado por:");
-	CEGUI::WindowManager::getSingleton().getWindow("FormatWin/Text2")->setText("[vert-alignment='centre']   - Juan Carlos Fernandez Duran");
-	CEGUI::WindowManager::getSingleton().getWindow("FormatWin/Text3")->setText("[vert-alignment='centre']   - Ivan Martinez Heras");
+	CEGUI::WindowManager::getSingleton().getWindow("FormatWin/Text1")->setText("[vert-alignment='centre'] [colour='FF000000'] Creado por:");
+	CEGUI::WindowManager::getSingleton().getWindow("FormatWin/Text2")->setText("[vert-alignment='centre'] [colour='FF000000']  - Juan Carlos Fernandez Duran");
+	CEGUI::WindowManager::getSingleton().getWindow("FormatWin/Text3")->setText("[vert-alignment='centre'] [colour='FF000000']  - Ivan Martinez Heras");
 
 	//Back Window
 	CEGUI::Window* backButton = CEGUI::WindowManager::getSingleton().getWindow("FormatWin/BackButton");
