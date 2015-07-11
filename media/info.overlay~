@@ -20,7 +20,7 @@ Info
     {
 	metrics_mode pixels
         left -1550
-        top 48
+        top 50
         width 500
         height 230
         vert_align top
@@ -29,5 +29,22 @@ Info
     }
 
 
+}
+
+Victory
+{
+   zorder 500
+
+    container Panel(VictoryP) 
+    {
+ 		metrics_mode pixels
+        left 400
+        top 85
+        width 500
+        height 500
+        vert_align top
+        material VictoryLogo
+
+	  } 
 }
 

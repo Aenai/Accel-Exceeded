@@ -1,0 +1,50 @@
+Info
+{
+    zorder 500
+
+    container Panel (Fondo) 
+    {
+	metrics_mode pixels
+        left -1600
+        top 0
+        width 1800
+        height 900
+        vert_align top
+        horz_align right
+        material Fondo
+    }
+
+    zorder 480
+
+    container Panel (Title) 
+    {
+	metrics_mode pixels
+        left -1550
+        top 50
+        width 500
+        height 230
+        vert_align top
+        horz_align right
+        material Logo 
+    }
+
+
+}
+
+Victory
+{
+   zorder 500
+
+    container Panel(VictoryP) 
+    {
+ 		metrics_mode pixels
+        left 400
+        top 85
+        width 500
+        height 500
+        vert_align top
+        material VictoryLogo
+
+	  } 
+}
+

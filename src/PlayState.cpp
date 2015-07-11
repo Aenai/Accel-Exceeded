@@ -101,7 +101,7 @@ PlayState::enter ()
 	_root = Ogre::Root::getSingletonPtr();
 	
 	//Overlay
-	//_overlayManager = OverlayManager::getSingletonPtr();
+	_overlayManager = OverlayManager::getSingletonPtr();
 	//Overlay *overlay = _overlayManager->getByName("Info2");
 	//overlay->show();
 
@@ -349,8 +349,8 @@ PlayState::frameStarted
     _win = true;
     std::cout << "Win Condition!" << std::endl;
     _recordMgr->keepRecord(_recordTimer.getMilliseconds(),0);
-    //Overlay *overlay = _overlayManager->getByName("Victory");
-    //overlay->show();
+    Overlay *overlay = _overlayManager->getByName("Victory");
+    overlay->show();
   }
   //Bouncer Logic
   if(5 > _player->getPosition().distance(Vector3(-47,-32,71))){
