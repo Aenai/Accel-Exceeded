@@ -107,8 +107,8 @@ PlayState::enter ()
 
 	// Se recupera el gestor de escena y la cámara.
 	_sceneMgr = _root->getSceneManager("SceneManager");
-	_sceneMgr -> setAmbientLight(Ogre::ColourValue(2, 2, 2));
-  	_sceneMgr -> setShadowTechnique(Ogre::SHADOWTYPE_STENCIL_ADDITIVE);
+//	_sceneMgr -> setAmbientLight(Ogre::ColourValue(2, 2, 2));
+//  	_sceneMgr -> setShadowTechnique(Ogre::SHADOWTYPE_STENCIL_ADDITIVE);
 	_camera = _sceneMgr->getCamera("IntroCamera");
 	_viewport = _root->getAutoCreatedWindow()->addViewport(_camera);
 	
@@ -117,7 +117,7 @@ PlayState::enter ()
 	_camera->setFarClipDistance(10);
 
 	// Nuevo background colour.
-	_viewport->setBackgroundColour(Ogre::ColourValue(0.0, 0.0, 0.0));
+	_viewport->setBackgroundColour(Ogre::ColourValue(1, 1, 1));
 	
 	//Sound Managers
 	 _pTrackManager = new TrackManager;
@@ -125,21 +125,35 @@ PlayState::enter ()
  	(_pTrackManager->load("lightintro.ogg"))->play();
   
   //Ground and Lights initialization
-  _sceneMgr->setShadowTechnique(Ogre::SHADOWTYPE_STENCIL_ADDITIVE);	
-  _sceneMgr->setShadowColour(Ogre::ColourValue(1, 1, 1) );
-  _sceneMgr->setAmbientLight(Ogre::ColourValue(5, 5, 5));
+//  _sceneMgr->setShadowTechnique(Ogre::SHADOWTYPE_STENCIL_ADDITIVE);	
+//  _sceneMgr->setShadowColour(Ogre::ColourValue(2, 2, 2) );
+//  _sceneMgr->setAmbientLight(Ogre::ColourValue(0.4, 0.4, 0.4));
 
+//  _sceneMgr->setShadowTextureCount(2);
+//  _sceneMgr->setShadowTextureSize(512);
+  
+//  light = _sceneMgr->createLight("Light1");
+//  light->setPosition(0,0,0);
+//  light->setType(Ogre::Light::LT_SPOTLIGHT); 
+//  light->setDirection(Ogre::Vector3(1,-1,0));
+//  light->setSpotlightInnerAngle(Ogre::Degree(25.0f));
+//  light->setSpotlightOuterAngle(Ogre::Degree(60.0f));
+//  light->setSpotlightFalloff(5.0f);
+//  light->setCastShadows(true);
+
+
+  _sceneMgr->setAmbientLight(Ogre::ColourValue(0.7, 0.7, 0.7));
   _sceneMgr->setShadowTextureCount(2);
   _sceneMgr->setShadowTextureSize(512);
-  
-   light = _sceneMgr->createLight("Light1");
-  light->setPosition(-100,40,0);
-  light->setType(Ogre::Light::LT_SPOTLIGHT); 
-//  light->setDirection(Ogre::Vector3(1,-1,0));
-  light->setSpotlightInnerAngle(Ogre::Degree(25.0f));
-  light->setSpotlightOuterAngle(Ogre::Degree(60.0f));
-  light->setSpotlightFalloff(5.0f);
+  _sceneMgr->setShadowColour(Ogre::ColourValue(1, 1, 1));
+  _sceneMgr->setShadowTechnique(Ogre::SHADOWTYPE_STENCIL_ADDITIVE);
+
+  Ogre::Light* light = _sceneMgr->createLight("2Light");
   light->setCastShadows(true);
+  light->setPosition(Ogre::Vector3(20,-30,0));
+  light->setType(Ogre::Light::LT_POINT);
+  light->setDiffuseColour(100,100,100);
+  light->setSpecularColour(100,100,100);
 
   _changes = 0;
   _jumps = 0;
@@ -162,15 +176,16 @@ PlayState::enter ()
   // Creacion de los elementos iniciales del mundo
 
   // Creacion del track --------------------------------------------------
-  Entity *entity = _sceneMgr->createEntity("Nivel.mesh");
+  Entity* level = _sceneMgr->createEntity("Nivel.mesh");
+  level->setCastShadows(true);
   SceneNode *trackNode = _sceneMgr->createSceneNode("track");
-  scaleMesh(entity,Vector3(6,6,6));
-  trackNode->attachObject(entity);
+  scaleMesh(level,Vector3(6,6,6));
+  trackNode->attachObject(level);
 
 
   _sceneMgr->getRootSceneNode()->addChild(trackNode);
   OgreBulletCollisions::StaticMeshToShapeConverter *trimeshConverter = new 
-    OgreBulletCollisions::StaticMeshToShapeConverter(entity);
+    OgreBulletCollisions::StaticMeshToShapeConverter(level);
 
   OgreBulletCollisions::TriangleMeshCollisionShape *trackTrimesh = 
     trimeshConverter->createTrimesh();
@@ -236,13 +251,16 @@ PlayState::enter ()
 //  _player->setVisible(false);
 
   //DEBUG ONLY Coordinator Situate
-	Ogre::Entity* ent2 = _sceneMgr->createEntity("DEBUG SEE", "PJMesh.mesh");
+	Ogre::Entity* ent2 = _sceneMgr->createEntity("DEBUG SEE", "Pointer.mesh");
+	ent2->setCastShadows(true);
   	std::shared_ptr<SceneNode> visor(_sceneMgr->createSceneNode("DEBUG"));
 	_coordVisor = visor;
 	_coordVisor->attachObject(ent2);
 	_sceneMgr->getRootSceneNode()->addChild(_coordVisor.get());
-	_coordVisor->setScale(0.05,0.05,0.05);
-	_coordVisor->setPosition(-100,2200,0);
+	_coordVisor->setScale(1,1,1);
+	_coordVisor->setPosition(20,-30,80);
+	_coordVisor->setOrientation(0,0,50,0);
+
   //NOT DEBUG
 
   OgreBulletCollisions::BoxCollisionShape *boxShape = new 

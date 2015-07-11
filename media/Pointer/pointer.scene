@@ -1,0 +1,24 @@
+<scene formatVersion="1.0.1" export_time="1436554125.0235078" exported_by="aenai" previous_export_time="0" >
+  <nodes >
+    <node name="Pointer" >
+      <position y="0.000000" z="-0.000000" x="0.000000" />
+      <rotation qx="0.000000" qz="-0.000000" qw="1.000000" qy="0.000000" />
+      <scale y="1.000000" z="1.000000" x="1.000000" />
+      <game >
+        <sensors />
+        <actuators />
+      </game>
+      <entity velocity_max="0.0" lock_trans_z="False" mass_radius="1.0" actor="False" damping_trans="0.03999999910593033" lock_rot_z="False" physics_type="STATIC" anisotropic_friction="False" inertia_tensor="0.4000000059604645" velocity_min="0.0" lock_rot_y="False" friction_y="1.0" lock_trans_x="False" mass="1.0" lock_trans_y="False" meshFile="Pointer.mesh" friction_x="1.0" name="Pointer" friction_z="1.0" ghost="False" damping_rot="0.10000000149011612" lock_rot_x="False" />
+    </node>
+  </nodes>
+  <externals >
+    <item type="material" >
+      <file name="/home/aenai/Escritorio/CEDV/Modelos/Pruebas/PJ/Pointer/Material.material" />
+    </item>
+  </externals>
+  <environment >
+    <colourBackground r="0.05087608844041824" b="0.05087608844041824" g="0.05087608844041824" />
+    <colourAmbient r="0.0" b="0.0" g="0.0" />
+    <colourDiffuse r="0.05087608844041824" b="0.05087608844041824" g="0.05087608844041824" />
+  </environment>
+</scene>
