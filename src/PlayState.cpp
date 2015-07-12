@@ -142,25 +142,32 @@ PlayState::enter ()
 //  light->setCastShadows(true);
 
 
-  _sceneMgr->setAmbientLight(Ogre::ColourValue(10,10,10));
-  _sceneMgr->setShadowTextureCount(3);
+  _sceneMgr->setAmbientLight(Ogre::ColourValue(0.3,0.3,0.3));
+  _sceneMgr->setShadowTextureCount(5);
   _sceneMgr->setShadowTextureSize(512);
-  _sceneMgr->setShadowColour(Ogre::ColourValue(0.3,0.3,0.3));
+  _sceneMgr->setShadowColour(Ogre::ColourValue(0.1,0.1,0.1));
   _sceneMgr->setShadowTechnique(Ogre::SHADOWTYPE_STENCIL_ADDITIVE);
 
   Ogre::Light* light = _sceneMgr->createLight("1Light");
   light->setCastShadows(true);
   light->setPosition(Ogre::Vector3(30,-30,0));
   light->setType(Ogre::Light::LT_POINT);
-  light->setDiffuseColour(250,250,250);
-  light->setSpecularColour(250,250,250);
+  light->setDiffuseColour(0.5,0.5,0.5);
+  light->setSpecularColour(1,1,1);
 
   Ogre::Light* light2 = _sceneMgr->createLight("2Light");
   light2->setCastShadows(true);
-  light2->setPosition(Ogre::Vector3(-30,-30,0));
+  light2->setPosition(Ogre::Vector3(-30,60,0));
   light2->setType(Ogre::Light::LT_POINT);
-  light2->setDiffuseColour(250,250,250);
-  light2->setSpecularColour(250,250,250);
+  light2->setDiffuseColour(1,1,1);
+  light2->setSpecularColour(1,1,1);
+
+  Ogre::Light* light3 = _sceneMgr->createLight("3Light");
+  light3->setCastShadows(true);
+  light3->setPosition(Ogre::Vector3(0,0,0));
+  light3->setType(Ogre::Light::LT_POINT);
+  light3->setDiffuseColour(1,1,1);
+  light3->setSpecularColour(1,1,1);
 
   _changes = 0;
   _jumps = 0;
@@ -265,7 +272,7 @@ PlayState::enter ()
 	_coordVisor->attachObject(ent2);
 	_sceneMgr->getRootSceneNode()->addChild(_coordVisor.get());
 	_coordVisor->setScale(1,1,1);
-	_coordVisor->setPosition(20,-30,80);
+	_coordVisor->setPosition(20,-80,80);
 	_coordVisor->setOrientation(0,0,50,0);
 
   //NOT DEBUG
