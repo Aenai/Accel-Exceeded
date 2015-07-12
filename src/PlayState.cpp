@@ -19,7 +19,7 @@ bool PlayState::Raycast_world(const btVector3 &Start, btVector3 &End, bool floor
     _world->getBulletDynamicsWorld()->rayTest(Start, End, res); // m_btWorld is btDiscreteDynamicsWorld
     double stepDistance = _player->getPosition().y-res.m_hitPointWorld.getY(); 
    // std::cout <<stepDistance << std::endl;
-    if(stepDistance > 0&& stepDistance < 2.5 && floorCheck  && !_reverse){
+    if(stepDistance > 0&& stepDistance < 5.5 && floorCheck  && !_reverse){
       //_ySpeed += 34*_lastTime;
       Vector3 direction(0,1,0);
       _player->translate(direction);
@@ -298,6 +298,7 @@ PlayState::enter ()
   //Timers
    _backwardTimer=Ogre::Timer();
    _recordTimer = Ogre::Timer();
+   _getBackTimer = Ogre::Timer();
 
   //Variables
 
@@ -342,7 +343,7 @@ PlayState::frameStarted
   _world->stepSimulation(_lastTime); // Actualizar simulacion Bullet
 
   //Back in time Logic
-  if(_backwardTimer.getMilliseconds() > 100 && !_reverse){
+  if(_backwardTimer.getMilliseconds() > 600 && !_reverse){
 
     _backwardTimer=Ogre::Timer();
     Vector3 newPosition = _player->getPosition();
@@ -361,7 +362,7 @@ PlayState::frameStarted
 
    Vector3 lastPosition = _backwardVectors.back();
    Vector3 goingTo = lastPosition - _player->getPosition() ;
-   Vector3 normalisedDelta = goingTo.normalisedCopy()*evt.timeSinceLastFrame*10;
+   Vector3 normalisedDelta = goingTo.normalisedCopy()*evt.timeSinceLastFrame*30;
    _player->translate(normalisedDelta);
    if(goingTo.length() < 0.5){
     _backwardVectors.pop_back();
@@ -376,6 +377,15 @@ PlayState::frameStarted
     _recordMgr->keepRecord(_recordTimer.getMilliseconds(),0);
     Overlay *overlay = _overlayManager->getByName("Victory");
     overlay->show();
+   _getBackTimer = Ogre::Timer();
+  }
+  if(_getBackTimer.getMilliseconds() > 5000 && _win){
+    Vector3 origin(-40,-46,87);
+    _player->setPosition(origin);
+    _win = false;
+    _recordTimer = Ogre::Timer();
+    Overlay *overlay = _overlayManager->getByName("Victory");
+    overlay->hide();
   }
   //Bouncer Logic
   if(5 > _player->getPosition().distance(Vector3(-47,-32,71))){
@@ -394,7 +404,7 @@ PlayState::frameStarted
   //Movement Logic
   btVector3 playerVelocity = rigidBoxPlayer->getBulletRigidBody()->getLinearVelocity();
 
-  double speed = 0.6;
+  double speed = 1.3;
   Quaternion prueba = _camera->getOrientation();
   Vector3 cameraDirection = _camera->getDirection();
   cameraDirection.y = 0;
@@ -528,7 +538,7 @@ PlayState::keyPressed
     _right = true;
   }
 
-  if(e.key == OIS::KC_SPACE && _jumps < 222){
+  if(e.key == OIS::KC_SPACE && _jumps < 2){
     _ySpeed = 20;
     _jumps++;
     std::cout << _jumps << std::endl;

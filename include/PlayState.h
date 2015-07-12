@@ -89,6 +89,7 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState
 
   Ogre::Timer _backwardTimer;
   Ogre::Timer _recordTimer;
+  Ogre::Timer _getBackTimer;
   double _lastTime;
   int _changes;
   int _jumps;
